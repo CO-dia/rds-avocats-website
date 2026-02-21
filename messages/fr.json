@@ -1,0 +1,133 @@
+{
+  "Metadata": {
+    "title": "RDS Avocats | Votre avenir, notre mission",
+    "description": "Cabinet d'avocats spécialisé en droit des affaires, immigration d'affaires, droit commercial, corporatif, familial, pénal et civil. Accompagnement stratégique pour bâtir, investir et réussir au Canada."
+  },
+  "Header": {
+    "home": "Accueil",
+    "about": "À propos",
+    "team": "Équipe",
+    "services": "Services",
+    "booking": "Rendez-vous",
+    "contact": "Contact",
+    "switchLocale": "EN"
+  },
+  "Hero": {
+    "title": "RDS Avocats",
+    "tagline": "Votre avenir, notre mission",
+    "ctaBooking": "Prendre rendez-vous",
+    "ctaDiscover": "Découvrir le cabinet"
+  },
+  "About": {
+    "label": "À propos",
+    "headingLine1": "Un cabinet,",
+    "headingLine2": "toutes les solutions.",
+    "paragraph1": "Chez RDS Avocats, nous réunissons une équipe aux expertises complémentaires en droit des affaires, commercial et corporatif, ainsi qu'en droit de l'immigration, de la famille, civil, pénal et criminel. Cette diversité nous permet d'accompagner nos clients dans toutes les dimensions de leur réalité, personnelle comme professionnelle.",
+    "paragraph2Strong": "Notre force distinctive :",
+    "paragraph2": "l'immigration d'affaires. Nous aidons les entrepreneurs et entreprises étrangères à s'implanter au Canada tout en structurant leur expansion et leur projet de vie ici.",
+    "paragraph3": "Avec RDS Avocats, vous bénéficiez d'un accompagnement stratégique, rigoureux et humain — un partenaire juridique solide pour bâtir, investir et réussir au Canada.",
+    "quote": "Notre approche : claire, stratégique et orientée croissance.",
+    "subquote": "On parle votre langage, on comprend la réalité entrepreneuriale, et on vous aide à avancer sans ralentir votre momentum.",
+    "strengths": [
+      {
+        "title": "Expertises complémentaires",
+        "desc": "Droit des affaires, immigration, famille, pénal et civil sous un même toit."
+      },
+      {
+        "title": "Immigration d'affaires",
+        "desc": "Nous aidons entrepreneurs et entreprises étrangères à s'implanter au Canada."
+      },
+      {
+        "title": "Approche humaine",
+        "desc": "Un accompagnement stratégique, rigoureux et humain à chaque étape."
+      },
+      {
+        "title": "Orienté croissance",
+        "desc": "On comprend la réalité entrepreneuriale et on préserve votre momentum."
+      }
+    ]
+  },
+  "Team": {
+    "label": "Notre équipe",
+    "headingLine1": "Les avocats",
+    "headingLine2": "qui vous accompagnent.",
+    "description": "Une équipe aux expertises complémentaires, unie par une même exigence de rigueur et d'engagement envers ses clients."
+  },
+  "Services": {
+    "label": "Services",
+    "headingLine1": "Nos domaines",
+    "headingLine2": "d'expertise",
+    "subtext": "Chaque situation est unique — nous adaptons notre approche à vos besoins.",
+    "cta": "Prendre rendez-vous",
+    "items": [
+      { "title": "Corporatif", "tags": ["Incorporation", "Réorganisation", "Livre corporatif", "Charte"] },
+      { "title": "Commercial", "tags": ["Contrats", "Partenariats", "Fournisseurs"] },
+      { "title": "Repreneuriat", "tags": ["Lettre d'intention", "Lettre d'offre", "Vérification diligente", "Contrat de vente"] },
+      { "title": "Immigration — Personnes", "tags": ["Asile", "Condition humanitaire"] },
+      { "title": "Immigration d'affaires", "tags": ["Travail", "Entreprises"] },
+      { "title": "Divorce", "tags": ["À l'amiable", "Contesté"] },
+      { "title": "Famille", "tags": ["Garde", "Pension alimentaire"] },
+      { "title": "Pénal / Criminel", "tags": ["Conduite avec facultés affaiblies", "Contestation de ticket"] },
+      { "title": "Civil", "tags": ["Réclamation", "Litige", "Mise en demeure"] },
+      { "title": "Autre", "tags": ["Situation particulière? Contactez-nous."] }
+    ]
+  },
+  "Booking": {
+    "label": "Rendez-vous",
+    "headingLine1": "Prendre",
+    "headingLine2": "rendez-vous",
+    "description": "Choisissez le format qui correspond à votre besoin. Chaque consultation est confidentielle et orientée solution.",
+    "items": [
+      {
+        "title": "Appel découverte",
+        "duration": "15 minutes",
+        "price": "Gratuit",
+        "priceNote": "Première consultation",
+        "desc": "On discute de votre projet, on cerne le besoin et on vous oriente vers la meilleure solution. Simple, rapide, efficace."
+      },
+      {
+        "title": "Consultation stratégique",
+        "duration": "30 minutes",
+        "price": "150 $",
+        "desc": "Parfait pour valider une idée, poser une question ciblée ou débloquer une situation rapidement."
+      },
+      {
+        "title": "Consultation approfondie",
+        "duration": "60 minutes",
+        "price": "300 $",
+        "desc": "Pour structurer votre stratégie, analyser vos documents et repartir avec un plan d'action concret."
+      }
+    ]
+  },
+  "Footer": {
+    "tagline": "Votre avenir, notre mission.",
+    "contact": "Contact",
+    "navigation": "Navigation",
+    "home": "Accueil",
+    "about": "À propos",
+    "team": "Équipe",
+    "services": "Services",
+    "booking": "Rendez-vous",
+    "copyright": "© {year} RDS Avocats. Tous droits réservés."
+  },
+  "Lawyer": {
+    "backHome": "Accueil",
+    "appointment": "Rendez-vous",
+    "addContact": "Ajouter",
+    "qrCode": "QR Code",
+    "about": "À propos",
+    "socials": "Réseaux",
+    "share": "Partager cette fiche",
+    "scanToShare": "Scanner pour partager",
+    "scanDescription": "Scannez ce code avec votre téléphone pour accéder à cette fiche de contact.",
+    "tagline": "Votre avenir, notre mission.",
+    "office": "Bureau",
+    "professional": "Professionnel"
+  },
+  "Lawyers": {
+    "hanitra": {
+      "title": "Avocat en droit des affaires",
+      "description": "Spécialisée en droit de l'immigration d'affaires, Hanitra accompagne entrepreneurs et entreprises étrangères dans leur implantation au Canada. Son approche stratégique et humaine permet à ses clients de naviguer les complexités de l'immigration avec confiance."
+    }
+  }
+}

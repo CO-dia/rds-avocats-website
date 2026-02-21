@@ -1,6 +1,9 @@
 import { Scale } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("Hero");
+
   return (
     <section
       id="accueil"
@@ -20,13 +23,13 @@ export default function Hero() {
         </div>
 
         <h1 className="font-heading text-5xl font-bold tracking-wider text-accent sm:text-6xl md:text-7xl lg:text-8xl animate-fade-in-up">
-          RDS Avocats
+          {t("title")}
         </h1>
 
         <p className="mt-6 font-heading text-xl italic text-gold sm:text-2xl md:text-3xl animate-fade-in-up delay-200 opacity-0"
           style={{ letterSpacing: "0.05em" }}
         >
-          Votre avenir, notre mission
+          {t("tagline")}
         </p>
 
         <div className="mt-8 flex items-center gap-3 animate-fade-in delay-400 opacity-0">
@@ -40,13 +43,13 @@ export default function Hero() {
             href="#rendez-vous"
             className="group flex items-center gap-2 rounded-none border border-accent bg-accent/10 px-8 py-3.5 text-sm font-body font-bold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-accent hover:text-white"
           >
-            Prendre rendez-vous
+            {t("ctaBooking")}
           </a>
           <a
             href="#a-propos"
             className="flex items-center gap-2 rounded-none border border-gold/20 px-8 py-3.5 text-sm font-body font-bold uppercase tracking-widest text-gold-dim transition-all duration-300 hover:border-gold/50 hover:text-gold"
           >
-            Découvrir le cabinet
+            {t("ctaDiscover")}
           </a>
         </div>
       </div>

@@ -1,0 +1,133 @@
+{
+  "Metadata": {
+    "title": "RDS Avocats | Your future, our mission",
+    "description": "Law firm specializing in business law, business immigration, commercial, corporate, family, criminal and civil law. Strategic support to build, invest and succeed in Canada."
+  },
+  "Header": {
+    "home": "Home",
+    "about": "About",
+    "team": "Team",
+    "services": "Services",
+    "booking": "Book",
+    "contact": "Contact",
+    "switchLocale": "FR"
+  },
+  "Hero": {
+    "title": "RDS Avocats",
+    "tagline": "Your future, our mission",
+    "ctaBooking": "Book a consultation",
+    "ctaDiscover": "Discover the firm"
+  },
+  "About": {
+    "label": "About",
+    "headingLine1": "One firm,",
+    "headingLine2": "every solution.",
+    "paragraph1": "At RDS Avocats, we bring together a team with complementary expertise in business, commercial and corporate law, as well as immigration, family, civil and criminal law. This diversity allows us to support our clients in every dimension of their reality, both personal and professional.",
+    "paragraph2Strong": "Our distinctive strength:",
+    "paragraph2": "business immigration. We help entrepreneurs and foreign companies establish themselves in Canada while structuring their expansion and life projects here.",
+    "paragraph3": "With RDS Avocats, you benefit from strategic, rigorous and human support — a solid legal partner to build, invest and succeed in Canada.",
+    "quote": "Our approach: clear, strategic and growth-oriented.",
+    "subquote": "We speak your language, we understand the entrepreneurial reality, and we help you move forward without slowing your momentum.",
+    "strengths": [
+      {
+        "title": "Complementary expertise",
+        "desc": "Business, immigration, family, criminal and civil law under one roof."
+      },
+      {
+        "title": "Business immigration",
+        "desc": "We help entrepreneurs and foreign companies establish themselves in Canada."
+      },
+      {
+        "title": "Human approach",
+        "desc": "Strategic, rigorous and human support at every step."
+      },
+      {
+        "title": "Growth-oriented",
+        "desc": "We understand the entrepreneurial reality and preserve your momentum."
+      }
+    ]
+  },
+  "Team": {
+    "label": "Our team",
+    "headingLine1": "The lawyers",
+    "headingLine2": "who support you.",
+    "description": "A team with complementary expertise, united by the same commitment to rigor and dedication to its clients."
+  },
+  "Services": {
+    "label": "Services",
+    "headingLine1": "Our areas",
+    "headingLine2": "of expertise",
+    "subtext": "Every situation is unique — we adapt our approach to your needs.",
+    "cta": "Book a consultation",
+    "items": [
+      { "title": "Corporate", "tags": ["Incorporation", "Reorganization", "Corporate book", "Charter"] },
+      { "title": "Commercial", "tags": ["Contracts", "Partnerships", "Suppliers"] },
+      { "title": "Business acquisition", "tags": ["Letter of intent", "Offer letter", "Due diligence", "Sale agreement"] },
+      { "title": "Immigration — Individuals", "tags": ["Asylum", "Humanitarian condition"] },
+      { "title": "Business immigration", "tags": ["Work permits", "Companies"] },
+      { "title": "Divorce", "tags": ["Amicable", "Contested"] },
+      { "title": "Family", "tags": ["Custody", "Child support"] },
+      { "title": "Criminal", "tags": ["Impaired driving", "Ticket contestation"] },
+      { "title": "Civil", "tags": ["Claims", "Litigation", "Demand letter"] },
+      { "title": "Other", "tags": ["Special situation? Contact us."] }
+    ]
+  },
+  "Booking": {
+    "label": "Appointments",
+    "headingLine1": "Book a",
+    "headingLine2": "consultation",
+    "description": "Choose the format that suits your needs. Every consultation is confidential and solution-oriented.",
+    "items": [
+      {
+        "title": "Discovery call",
+        "duration": "15 minutes",
+        "price": "Free",
+        "priceNote": "First consultation",
+        "desc": "We discuss your project, identify the need and guide you toward the best solution. Simple, quick, effective."
+      },
+      {
+        "title": "Strategic consultation",
+        "duration": "30 minutes",
+        "price": "$150",
+        "desc": "Perfect for validating an idea, asking a targeted question or unblocking a situation quickly."
+      },
+      {
+        "title": "In-depth consultation",
+        "duration": "60 minutes",
+        "price": "$300",
+        "desc": "To structure your strategy, analyze your documents and leave with a concrete action plan."
+      }
+    ]
+  },
+  "Footer": {
+    "tagline": "Your future, our mission.",
+    "contact": "Contact",
+    "navigation": "Navigation",
+    "home": "Home",
+    "about": "About",
+    "team": "Team",
+    "services": "Services",
+    "booking": "Book",
+    "copyright": "© {year} RDS Avocats. All rights reserved."
+  },
+  "Lawyer": {
+    "backHome": "Home",
+    "appointment": "Book",
+    "addContact": "Add",
+    "qrCode": "QR Code",
+    "about": "About",
+    "socials": "Socials",
+    "share": "Share this card",
+    "scanToShare": "Scan to share",
+    "scanDescription": "Scan this code with your phone to access this contact card.",
+    "tagline": "Your future, our mission.",
+    "office": "Office",
+    "professional": "Professional"
+  },
+  "Lawyers": {
+    "hanitra": {
+      "title": "Business law attorney",
+      "description": "Specializing in business immigration law, Hanitra supports entrepreneurs and foreign companies in establishing themselves in Canada. Her strategic and human approach allows her clients to navigate the complexities of immigration with confidence."
+    }
+  }
+}

@@ -2,12 +2,12 @@ export interface Lawyer {
   slug: string;
   firstName: string;
   lastName: string;
-  title: string;
+  titleKey: string;
   company: string;
   photo: string;
-  phones: { label: string; number: string }[];
-  emails: { label: string; address: string }[];
-  description: string;
+  phones: { labelKey: string; number: string }[];
+  emails: { labelKey: string; address: string }[];
+  descriptionKey: string;
   calLink: string;
   socials: { platform: string; url: string; label: string }[];
 }
@@ -17,15 +17,14 @@ export const lawyers: Lawyer[] = [
     slug: "hanitra",
     firstName: "Hanitra",
     lastName: "Ravalimanantsoa",
-    title: "Avocat en droit des affaires",
+    titleKey: "hanitra.title",
     company: "RDS Avocats",
     photo: "/Hanitra.jpeg",
-    phones: [{ label: "Bureau", number: "+1 514 569 8793" }],
+    phones: [{ labelKey: "office", number: "+1 514 569 8793" }],
     emails: [
-      { label: "Professionnel", address: "hravalimanantsoa@rds-avocats.com" },
+      { labelKey: "professional", address: "hravalimanantsoa@rds-avocats.com" },
     ],
-    description:
-      "Spécialisée en droit de l'immigration d'affaires, Hanitra accompagne entrepreneurs et entreprises étrangères dans leur implantation au Canada. Son approche stratégique et humaine permet à ses clients de naviguer les complexités de l'immigration avec confiance.",
+    descriptionKey: "hanitra.description",
     calLink: "https://cal.com/rds-avocats/hanitra",
     socials: [
       {
@@ -35,7 +34,6 @@ export const lawyers: Lawyer[] = [
       },
     ],
   },
-  // Add more lawyers here following the same structure
 ];
 
 export function getLawyerBySlug(slug: string): Lawyer | undefined {

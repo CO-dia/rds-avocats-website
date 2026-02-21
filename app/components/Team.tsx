@@ -1,8 +1,13 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { lawyers } from "@/app/data/lawyers";
 
 export default function Team() {
+  const t = useTranslations("Team");
+  const tLawyers = useTranslations("Lawyers");
+
   return (
     <section id="equipe" className="relative py-24 lg:py-32">
       <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-transparent via-accent/30 to-transparent" />
@@ -11,7 +16,7 @@ export default function Team() {
         <div className="mb-4 flex items-center gap-3">
           <div className="h-px w-8 bg-accent" />
           <span className="font-body text-xs font-bold uppercase tracking-[0.3em] text-accent">
-            Notre équipe
+            {t("label")}
           </span>
         </div>
 
@@ -19,19 +24,18 @@ export default function Team() {
           className="font-heading text-3xl font-bold text-accent sm:text-4xl lg:text-5xl"
           style={{ letterSpacing: "0.05em" }}
         >
-          Les avocats
+          {t("headingLine1")}
           <br />
-          qui vous accompagnent.
+          {t("headingLine2")}
         </h2>
 
         <p className="mt-6 max-w-2xl font-body text-base text-gold-dim sm:text-lg" style={{ letterSpacing: "0.02em" }}>
-          Une équipe aux expertises complémentaires, unie par une même exigence
-          de rigueur et d&apos;engagement envers ses clients.
+          {t("description")}
         </p>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {lawyers.map((lawyer) => (
-            <a
+            <Link
               key={lawyer.slug}
               href={`/avocats/${lawyer.slug}`}
               className="group relative flex flex-col overflow-hidden border border-white/5 bg-white/2 transition-all duration-500 hover:border-accent/30 hover:bg-accent/5"
@@ -62,10 +66,10 @@ export default function Team() {
                   <span className="text-accent">{lawyer.lastName}</span>
                 </h3>
                 <p className="mt-1 font-body text-sm text-gold-dim">
-                  {lawyer.title}
+                  {tLawyers(`${lawyer.slug}.title`)}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

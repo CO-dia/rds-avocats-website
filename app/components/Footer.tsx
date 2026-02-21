@@ -1,6 +1,17 @@
 import { Mail, Scale } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("Footer");
+
+  const footerLinks = [
+    { label: t("home"), href: "#accueil" },
+    { label: t("about"), href: "#a-propos" },
+    { label: t("team"), href: "#equipe" },
+    { label: t("services"), href: "#services" },
+    { label: t("booking"), href: "#rendez-vous" },
+  ];
+
   return (
     <footer id="contact" className="relative border-t border-white/5 py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -13,13 +24,13 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-4 font-heading text-sm italic text-gold/60">
-              Votre avenir, notre mission.
+              {t("tagline")}
             </p>
           </div>
 
           <div>
             <h4 className="font-body text-xs font-bold uppercase tracking-[0.3em] text-accent">
-              Contact
+              {t("contact")}
             </h4>
             <a
               href="mailto:info@rds-avocats.com"
@@ -32,16 +43,10 @@ export default function Footer() {
 
           <div>
             <h4 className="font-body text-xs font-bold uppercase tracking-[0.3em] text-accent">
-              Navigation
+              {t("navigation")}
             </h4>
             <div className="mt-4 flex flex-col gap-2">
-              {[
-                { label: "Accueil", href: "#accueil" },
-                { label: "À propos", href: "#a-propos" },
-                { label: "Équipe", href: "#equipe" },
-                { label: "Services", href: "#services" },
-                { label: "Rendez-vous", href: "#rendez-vous" },
-              ].map((link) => (
+              {footerLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -56,7 +61,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/5 pt-8 sm:flex-row sm:justify-between">
           <p className="font-body text-xs text-gold-dim/50">
-            &copy; {new Date().getFullYear()} RDS Avocats. Tous droits réservés.
+            {t("copyright", { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-1">
             <div className="h-1 w-1 rounded-full bg-accent/50" />

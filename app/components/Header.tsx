@@ -1,26 +1,38 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { label: "Accueil", href: "#accueil" },
-  { label: "À propos", href: "#a-propos" },
-  { label: "Équipe", href: "#equipe" },
-  { label: "Services", href: "#services" },
-  { label: "Rendez-vous", href: "#rendez-vous" },
-  { label: "Contact", href: "#contact" },
-];
+import { Menu, X, Globe } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 
 export default function Header() {
+  const t = useTranslations("Header");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navLinks = [
+    { label: t("home"), href: "#accueil" },
+    { label: t("about"), href: "#a-propos" },
+    { label: t("team"), href: "#equipe" },
+    { label: t("services"), href: "#services" },
+    { label: t("booking"), href: "#rendez-vous" },
+    { label: t("contact"), href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  function switchLocale() {
+    const next = locale === "fr" ? "en" : "fr";
+    router.replace(pathname, { locale: next });
+  }
 
   return (
     <header
@@ -48,6 +60,13 @@ export default function Header() {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={switchLocale}
+            className="flex items-center gap-1.5 border border-white/10 px-3 py-1.5 text-xs font-body font-bold uppercase tracking-widest text-gold-dim transition-colors duration-300 hover:border-accent/30 hover:text-gold"
+          >
+            <Globe size={14} strokeWidth={1.5} />
+            {t("switchLocale")}
+          </button>
         </nav>
 
         <button
@@ -72,6 +91,16 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            <button
+              onClick={() => {
+                switchLocale();
+                setMobileOpen(false);
+              }}
+              className="flex items-center gap-2 py-4 text-sm font-body tracking-widest uppercase text-gold-dim transition-colors hover:text-gold"
+            >
+              <Globe size={14} strokeWidth={1.5} />
+              {t("switchLocale")}
+            </button>
           </div>
         </nav>
       )}
