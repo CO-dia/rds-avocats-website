@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getLawyerBySlug, getAllLawyerSlugs } from "@/app/data/lawyers";
 import LawyerContactPage from "./LawyerContactPage";
 
@@ -32,7 +32,9 @@ export default async function LawyerPage({
 }: {
   params: Params;
 }) {
-  const { slug } = await params;
+  const { slug, locale } = await params;
+  setRequestLocale(locale);
+
   const lawyer = getLawyerBySlug(slug);
   if (!lawyer) notFound();
 
