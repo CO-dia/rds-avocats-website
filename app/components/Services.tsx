@@ -1,8 +1,4 @@
-"use client";
-
-import { useState } from "react";
 import {
-  ChevronDown,
   Building2,
   Handshake,
   KeyRound,
@@ -19,58 +15,64 @@ const services = [
   {
     icon: Building2,
     title: "Corporatif",
-    desc: "Incorporation, réorganisation, livre corporatif, charte, etc.",
+    items: ["Incorporation", "Réorganisation", "Livre corporatif", "Charte"],
   },
   {
     icon: Handshake,
     title: "Commercial",
-    desc: "Contrats, partenariats, fournisseurs.",
+    items: ["Contrats", "Partenariats", "Fournisseurs"],
   },
   {
     icon: KeyRound,
     title: "Repreneuriat",
-    desc: "Lettre d'intention, lettre d'offre, vérification diligente, contrat de vente, etc.",
+    items: [
+      "Lettre d'intention",
+      "Lettre d'offre",
+      "Vérification diligente",
+      "Contrat de vente",
+    ],
   },
   {
     icon: Users,
     title: "Immigration — Personnes",
-    desc: "Asile, condition humanitaire.",
+    items: ["Asile", "Condition humanitaire"],
   },
   {
     icon: Briefcase,
     title: "Immigration d'affaires",
-    desc: "Travail, entreprises.",
+    items: ["Travail", "Entreprises"],
   },
   {
     icon: Heart,
     title: "Divorce",
-    desc: "À l'amiable ou contesté.",
+    items: ["À l'amiable", "Contesté"],
   },
   {
     icon: Home,
     title: "Famille",
-    desc: "Garde, pension alimentaire, etc.",
+    items: ["Garde", "Pension alimentaire"],
   },
   {
     icon: Gavel,
     title: "Pénal / Criminel",
-    desc: "Conduite avec facultés affaiblies, contestation de ticket, etc.",
+    items: [
+      "Conduite avec facultés affaiblies",
+      "Contestation de ticket",
+    ],
   },
   {
     icon: FileText,
     title: "Civil",
-    desc: "Réclamation, litige, mise en demeure, etc.",
+    items: ["Réclamation", "Litige", "Mise en demeure"],
   },
   {
     icon: MoreHorizontal,
     title: "Autre",
-    desc: "Vous avez une situation particulière? Contactez-nous pour en discuter.",
+    items: ["Situation particulière? Contactez-nous."],
   },
 ];
 
 export default function Services() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <section id="services" className="relative py-24 lg:py-32">
       <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-transparent via-accent/30 to-transparent" />
@@ -83,67 +85,65 @@ export default function Services() {
           </span>
         </div>
 
-        <h2
-          className="font-heading text-3xl font-bold text-accent sm:text-4xl lg:text-5xl"
-          style={{ letterSpacing: "0.05em" }}
-        >
-          Nos domaines
-          <br />
-          d&apos;expertise
-        </h2>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <h2
+            className="font-heading text-3xl font-bold text-accent sm:text-4xl lg:text-5xl"
+            style={{ letterSpacing: "0.05em" }}
+          >
+            Nos domaines
+            <br />
+            d&apos;expertise
+          </h2>
 
-        <p className="mt-6 max-w-2xl font-body text-base text-gold-dim sm:text-lg" style={{ letterSpacing: "0.02em" }}>
-          Sélectionnez un domaine pour en savoir plus. Chaque situation est
-          unique — nous adaptons notre approche à vos besoins.
-        </p>
+          <p
+            className="max-w-md font-body text-sm text-gold-dim lg:text-right"
+            style={{ letterSpacing: "0.02em" }}
+          >
+            Chaque situation est unique — nous adaptons notre approche à vos
+            besoins.
+          </p>
+        </div>
 
-        <div className="mt-12 grid gap-3 lg:grid-cols-2 lg:gap-4">
-          {services.map((service, i) => {
-            const isOpen = openIndex === i;
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => {
+            const Icon = service.icon;
+
             return (
-              <div
-                key={service.title}
-                className={`group border transition-all duration-300 ${
-                  isOpen
-                    ? "border-accent/40 bg-accent/5"
-                    : "border-white/5 bg-white/2 hover:border-accent/20"
-                }`}
-              >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex w-full items-center gap-4 p-5 text-left"
-                >
-                  <service.icon
-                    className={`shrink-0 transition-colors duration-300 ${
-                      isOpen ? "text-accent" : "text-gold-dim group-hover:text-accent"
-                    }`}
-                    size={22}
-                    strokeWidth={1.5}
-                  />
-                  <span className="flex-1 font-heading text-sm font-bold uppercase tracking-wider text-gold">
-                    {service.title}
-                  </span>
-                  <ChevronDown
-                    className={`shrink-0 text-gold-dim transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-accent" : ""
-                    }`}
-                    size={18}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="animate-slide-down overflow-hidden border-t border-white/5 px-5 pb-5 pt-4">
-                    <p className="font-body text-sm leading-relaxed text-gold/80">
-                      {service.desc}
-                    </p>
-                    <a
-                      href="#rendez-vous"
-                      className="mt-4 inline-flex items-center gap-2 text-xs font-body font-bold uppercase tracking-widest text-accent transition-colors hover:text-accent-light"
-                    >
-                      Prendre rendez-vous
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
-                    </a>
+              <div key={service.title} className="group relative">
+                <div className="relative h-full overflow-hidden border border-white/6 bg-white/2 transition-all duration-400 hover:border-accent/20 hover:bg-white/4">
+                  <div className="absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-400 bg-linear-to-r from-transparent via-accent/50 to-transparent group-hover:opacity-100" />
+
+                  <div className="flex h-full flex-col p-6">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-white/4 text-gold-dim transition-all duration-400 group-hover:bg-accent/10 group-hover:text-accent">
+                      <Icon size={20} strokeWidth={1.5} />
+                    </div>
+
+                    <h3 className="mt-4 font-heading text-base font-bold tracking-wide text-gold">
+                      {service.title}
+                    </h3>
+
+                    <div className="mt-3 flex flex-1 flex-wrap content-start gap-1.5">
+                      {service.items.map((item) => (
+                        <span
+                          key={item}
+                          className="inline-block self-start border border-accent/15 bg-accent/5 px-2.5 py-1 font-body text-xs tracking-wide text-gold/70 transition-colors duration-300 group-hover:border-accent/25 group-hover:text-gold/85"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-5 pt-4 border-t border-white/5">
+                      <a
+                        href="#rendez-vous"
+                        className="inline-flex items-center gap-2 font-body text-xs font-bold uppercase tracking-widest text-accent/70 transition-colors hover:text-accent"
+                      >
+                        Prendre rendez-vous
+                        <span className="text-[10px] transition-transform group-hover:translate-x-0.5">→</span>
+                      </a>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

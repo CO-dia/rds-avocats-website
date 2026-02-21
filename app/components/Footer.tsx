@@ -38,6 +38,7 @@ export default function Footer() {
               {[
                 { label: "Accueil", href: "#accueil" },
                 { label: "À propos", href: "#a-propos" },
+                { label: "Équipe", href: "#equipe" },
                 { label: "Services", href: "#services" },
                 { label: "Rendez-vous", href: "#rendez-vous" },
               ].map((link) => (
