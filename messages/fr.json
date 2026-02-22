@@ -79,6 +79,7 @@
     "description": "Choisissez le format qui correspond à votre besoin. Chaque consultation est confidentielle et orientée solution.",
     "serviceLabel": "Domaine d'expertise",
     "servicePlaceholder": "Sélectionnez un service",
+    "customServicePlaceholder": "Décrivez votre besoin...",
     "bookButton": "Réserver maintenant",
     "items": [
       {

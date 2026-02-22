@@ -79,6 +79,7 @@
     "description": "Choose the format that suits your needs. Every consultation is confidential and solution-oriented.",
     "serviceLabel": "Area of expertise",
     "servicePlaceholder": "Select a service",
+    "customServicePlaceholder": "Describe your needs...",
     "bookButton": "Book now",
     "items": [
       {

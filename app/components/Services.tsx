@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Building2,
   Handshake,
@@ -94,6 +96,17 @@ export default function Services() {
                     <div className="mt-5 pt-4 border-t border-white/5">
                       <a
                         href="#rendez-vous"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          window.dispatchEvent(
+                            new CustomEvent("select-service", {
+                              detail: service.title,
+                            })
+                          );
+                          document
+                            .getElementById("rendez-vous")
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
                         className="inline-flex items-center gap-2 font-body text-xs font-bold uppercase tracking-widest text-accent/70 transition-colors hover:text-accent"
                       >
                         {t("cta")}

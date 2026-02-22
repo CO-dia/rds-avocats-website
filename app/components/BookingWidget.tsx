@@ -32,6 +32,9 @@ export default function BookingWidget() {
 
   const [selectedConsultation, setSelectedConsultation] = useState(0);
   const [selectedService, setSelectedService] = useState("");
+  const [customService, setCustomService] = useState("");
+
+  const isAutre = selectedService === "Autre" || selectedService === "Other";
 
   useEffect(() => {
     (async function () {
@@ -40,8 +43,23 @@ export default function BookingWidget() {
     })();
   }, []);
 
-  const calLink = selectedService
-    ? `${consultationSlugs[selectedConsultation]}?notes=${encodeURIComponent(`Service: ${selectedService}`)}`
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const title = (e as CustomEvent<string>).detail;
+      setSelectedService(title);
+    };
+    window.addEventListener("select-service", handler);
+    return () => window.removeEventListener("select-service", handler);
+  }, []);
+
+  const serviceNote = isAutre && customService
+    ? `Service: Autre — ${customService}`
+    : selectedService
+      ? `Service: ${selectedService}`
+      : "";
+
+  const calLink = serviceNote
+    ? `${consultationSlugs[selectedConsultation]}?notes=${encodeURIComponent(serviceNote)}`
     : consultationSlugs[selectedConsultation];
 
   return (
@@ -118,28 +136,45 @@ export default function BookingWidget() {
       </div>
 
       <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-end">
-        <div className="max-w-md flex-1">
-          <label className="mb-2 block font-body text-xs font-bold uppercase tracking-[0.2em] text-gold-dim">
-            {t("serviceLabel")}
-          </label>
-          <div className="relative">
-            <select
-              value={selectedService}
-              onChange={(e) => setSelectedService(e.target.value)}
-              className="w-full appearance-none border border-white/10 bg-black px-4 py-3 pr-10 font-body text-sm text-gold transition-colors focus:border-accent/40 focus:outline-none"
-            >
-              <option value="">{t("servicePlaceholder")}</option>
-              {services.map((s) => (
-                <option key={s.title} value={s.title}>
-                  {s.title}
-                </option>
-              ))}
-            </select>
-            <ChevronDown
-              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold-dim"
-              size={16}
-            />
+        <div className="max-w-md flex-1 space-y-3">
+          <div>
+            <label className="mb-2 block font-body text-xs font-bold uppercase tracking-[0.2em] text-gold-dim">
+              {t("serviceLabel")}
+            </label>
+            <div className="relative">
+              <select
+                value={selectedService}
+                onChange={(e) => {
+                  setSelectedService(e.target.value);
+                  if (e.target.value !== "Autre" && e.target.value !== "Other") {
+                    setCustomService("");
+                  }
+                }}
+                className="w-full appearance-none border border-white/10 bg-black px-4 py-3 pr-10 font-body text-sm text-gold transition-colors focus:border-accent/40 focus:outline-none"
+              >
+                <option value="">{t("servicePlaceholder")}</option>
+                {services.map((s) => (
+                  <option key={s.title} value={s.title}>
+                    {s.title}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold-dim"
+                size={16}
+              />
+            </div>
           </div>
+
+          {isAutre && (
+            <input
+              type="text"
+              value={customService}
+              onChange={(e) => setCustomService(e.target.value)}
+              placeholder={t("customServicePlaceholder")}
+              className="w-full border border-white/10 bg-black px-4 py-3 font-body text-sm text-gold transition-colors placeholder:text-gold-dim/50 focus:border-accent/40 focus:outline-none"
+            />
+          )}
         </div>
 
         <button
@@ -149,7 +184,7 @@ export default function BookingWidget() {
             layout: "month_view",
             useSlotsViewOnSmallScreen: "true",
           })}
-          disabled={!selectedService}
+          disabled={!selectedService || (isAutre && !customService)}
           className="inline-flex items-center gap-2 border border-accent bg-accent/10 px-8 py-3 font-body text-sm font-bold uppercase tracking-widest text-accent transition-all hover:bg-accent/20 disabled:cursor-not-allowed disabled:opacity-40"
         >
           <Calendar size={16} strokeWidth={1.5} />
