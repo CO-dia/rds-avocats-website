@@ -77,6 +77,9 @@
     "headingLine1": "Book a",
     "headingLine2": "consultation",
     "description": "Choose the format that suits your needs. Every consultation is confidential and solution-oriented.",
+    "serviceLabel": "Area of expertise",
+    "servicePlaceholder": "Select a service",
+    "bookButton": "Book now",
     "items": [
       {
         "title": "Discovery call",

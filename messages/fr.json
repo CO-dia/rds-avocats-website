@@ -77,6 +77,9 @@
     "headingLine1": "Prendre",
     "headingLine2": "rendez-vous",
     "description": "Choisissez le format qui correspond à votre besoin. Chaque consultation est confidentielle et orientée solution.",
+    "serviceLabel": "Domaine d'expertise",
+    "servicePlaceholder": "Sélectionnez un service",
+    "bookButton": "Réserver maintenant",
     "items": [
       {
         "title": "Appel découverte",
