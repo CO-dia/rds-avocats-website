@@ -26,7 +26,7 @@ export default function Booking() {
         </h2>
 
         <p
-          className="mt-6 max-w-2xl font-body text-base text-gold-dim sm:text-lg"
+          className="mt-6 max-w-2xl font-body text-base text-text sm:text-lg"
           style={{ letterSpacing: "0.02em" }}
         >
           {t("description")}

@@ -1,4 +1,4 @@
-import { Mail, Scale } from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
@@ -38,7 +38,7 @@ export default function Footer() {
             </h4>
             <a
               href="mailto:info@rds-avocats.com"
-              className="mt-4 flex items-center gap-3 font-body text-sm text-gold-dim transition-colors hover:text-gold"
+              className="mt-4 flex items-center gap-3 font-body text-sm text-text transition-colors hover:text-accent"
             >
               <Mail size={16} strokeWidth={1.5} />
               info@rds-avocats.com
@@ -54,7 +54,7 @@ export default function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-gold-dim transition-colors hover:text-gold"
+                  className="font-body text-sm text-text transition-colors hover:text-accent"
                 >
                   {link.label}
                 </a>
@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-4 border-t border-white/5 pt-8 sm:flex-row sm:justify-between">
-          <p className="font-body text-xs text-gold-dim/50">
+          <p className="font-body text-xs text-text/60">
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
           <div className="flex items-center gap-1">

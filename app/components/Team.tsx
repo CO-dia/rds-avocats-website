@@ -29,7 +29,7 @@ export default function Team() {
           {t("headingLine2")}
         </h2>
 
-        <p className="mt-6 max-w-2xl font-body text-base text-gold-dim sm:text-lg" style={{ letterSpacing: "0.02em" }}>
+        <p className="mt-6 max-w-2xl font-body text-base text-text sm:text-lg" style={{ letterSpacing: "0.02em" }}>
           {t("description")}
         </p>
 
@@ -65,7 +65,7 @@ export default function Team() {
                   {lawyer.firstName}{" "}
                   <span className="text-accent">{lawyer.lastName}</span>
                 </h3>
-                <p className="mt-1 font-body text-sm text-gold-dim">
+                <p className="mt-1 font-body text-sm text-text">
                   {tLawyers(`${lawyer.slug}.title`)}
                 </p>
               </div>

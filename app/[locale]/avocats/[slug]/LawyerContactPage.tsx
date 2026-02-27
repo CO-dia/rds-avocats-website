@@ -116,7 +116,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
 
       {/* Desktop: two-column card layout */}
       <div className="hidden lg:flex lg:min-h-dvh lg:items-center lg:justify-center lg:p-12">
-        <div className="flex w-full max-w-5xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
+        <div className="flex w-full max-w-5xl overflow-hidden border border-black/5 shadow-2xl shadow-black/10">
           <div className="relative w-[420px] shrink-0">
             <Image
               src={lawyer.photo}
@@ -143,7 +143,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto bg-black/40 backdrop-blur-xl">
+          <div className="flex-1 overflow-y-auto bg-background">
             <div className="p-8 xl:p-10">
               <div className="grid grid-cols-3 gap-3">
                 <button
@@ -176,8 +176,8 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                       <Phone size={18} strokeWidth={1.5} className="text-accent" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-gold-dim/60">{t(phone.labelKey)}</p>
-                      <p className="font-body text-sm text-gold">{phone.number}</p>
+                      <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-text/70">{t(phone.labelKey)}</p>
+                      <p className="font-body text-sm text-text">{phone.number}</p>
                     </div>
                     <ExternalLink size={14} className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent" />
                   </a>
@@ -188,8 +188,8 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                       <Mail size={18} strokeWidth={1.5} className="text-accent" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-gold-dim/60">{t(email.labelKey)}</p>
-                      <p className="truncate font-body text-sm text-gold">{email.address}</p>
+                      <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-text/70">{t(email.labelKey)}</p>
+                      <p className="truncate font-body text-sm text-text">{email.address}</p>
                     </div>
                     <ExternalLink size={14} className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent" />
                   </a>
@@ -202,7 +202,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                   <span className="font-body text-[10px] font-bold uppercase tracking-[0.3em] text-accent">{t("about")}</span>
                 </div>
                 <div className="border border-white/5 bg-white/2 p-5">
-                  <p className="font-body text-sm leading-relaxed text-gold/80">{lawyerDescription}</p>
+                  <p className="font-body text-sm leading-relaxed text-text">{lawyerDescription}</p>
                 </div>
               </div>
 
@@ -221,7 +221,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                             <Icon size={18} strokeWidth={1.5} className="text-accent" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <p className="font-body text-sm font-bold text-gold">{social.label}</p>
+                            <p className="font-body text-sm font-bold text-text">{social.label}</p>
                           </div>
                           <ExternalLink size={14} className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent" />
                         </a>
@@ -233,7 +233,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
 
               <button
                 onClick={() => shareContact(lawyer, lawyerTitle)}
-                className="mt-6 flex w-full items-center justify-center gap-3 border border-white/10 bg-white/2 p-4 font-body text-xs font-bold uppercase tracking-widest text-gold-dim transition-all duration-300 hover:border-accent/30 hover:bg-accent/5 hover:text-gold active:scale-[0.98]"
+                className="mt-6 flex w-full items-center justify-center gap-3 border border-white/10 bg-white/2 p-4 font-body text-xs font-bold uppercase tracking-widest text-text transition-all duration-300 hover:border-accent/30 hover:bg-accent/5 hover:text-accent active:scale-[0.98]"
               >
                 <Share2 size={16} strokeWidth={1.5} />
                 {t("share")}
@@ -348,10 +348,10 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                 <Phone size={18} strokeWidth={1.5} className="text-accent" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-gold-dim/60">
+                <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-text/70">
                   {t(phone.labelKey)}
                 </p>
-                <p className="font-body text-sm text-gold group-hover:text-gold">
+                <p className="font-body text-sm text-text group-hover:text-gold">
                   {phone.number}
                 </p>
               </div>
@@ -372,10 +372,10 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                 <Mail size={18} strokeWidth={1.5} className="text-accent" />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-gold-dim/60">
+                <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-text/70">
                   {t(email.labelKey)}
                 </p>
-                <p className="truncate font-body text-sm text-gold group-hover:text-gold">
+                <p className="truncate font-body text-sm text-text group-hover:text-gold">
                   {email.address}
                 </p>
               </div>
@@ -395,7 +395,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
             </span>
           </div>
           <div className="border border-white/5 bg-white/2 p-5">
-            <p className="font-body text-sm leading-relaxed text-gold/80">
+            <p className="font-body text-sm leading-relaxed text-text">
               {lawyerDescription}
             </p>
           </div>
@@ -428,9 +428,9 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                       />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="font-body text-sm font-bold text-gold">
-                        {social.label}
-                      </p>
+                    <p className="font-body text-sm font-bold text-text">
+                      {social.label}
+                    </p>
                     </div>
                     <ExternalLink
                       size={14}
@@ -445,7 +445,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
 
         <button
           onClick={() => shareContact(lawyer, lawyerTitle)}
-          className="mt-8 flex w-full items-center justify-center gap-3 border border-white/10 bg-white/2 p-4 font-body text-xs font-bold uppercase tracking-widest text-gold-dim transition-all duration-300 hover:border-accent/30 hover:bg-accent/5 hover:text-gold active:scale-[0.98]"
+          className="mt-8 flex w-full items-center justify-center gap-3 border border-white/10 bg-white/2 p-4 font-body text-xs font-bold uppercase tracking-widest text-text transition-all duration-300 hover:border-accent/30 hover:bg-accent/5 hover:text-accent active:scale-[0.98]"
         >
           <Share2 size={16} strokeWidth={1.5} />
           {t("share")}
@@ -506,7 +506,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                 />
               </div>
 
-              <p className="mt-4 text-center font-body text-xs text-gold-dim/60">
+              <p className="mt-4 text-center font-body text-xs text-text/70">
                 {t("scanDescription")}
               </p>
             </div>

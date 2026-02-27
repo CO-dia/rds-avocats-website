@@ -33,22 +33,22 @@ export default function About() {
 
         <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="space-y-6">
-            <p className="font-body text-base leading-relaxed text-gold/90 sm:text-lg" style={{ letterSpacing: "0.02em" }}>
+            <p className="font-body text-base leading-relaxed text-text sm:text-lg" style={{ letterSpacing: "0.02em" }}>
               {t("paragraph1")}
             </p>
-            <p className="font-body text-base leading-relaxed text-gold/90 sm:text-lg" style={{ letterSpacing: "0.02em" }}>
+            <p className="font-body text-base leading-relaxed text-text sm:text-lg" style={{ letterSpacing: "0.02em" }}>
               <strong className="text-gold">{t("paragraph2Strong")}</strong>{" "}
               {t("paragraph2")}
             </p>
-            <p className="font-body text-base leading-relaxed text-gold/90 sm:text-lg" style={{ letterSpacing: "0.02em" }}>
+            <p className="font-body text-base leading-relaxed text-text sm:text-lg" style={{ letterSpacing: "0.02em" }}>
               {t("paragraph3")}
             </p>
 
             <div className="mt-8 border-l-2 border-accent/50 pl-6">
-              <p className="font-heading text-lg italic text-gold/80 sm:text-xl">
+              <p className="font-heading text-lg italic text-text sm:text-xl">
                 {t("quote")}
               </p>
-              <p className="mt-2 font-body text-sm text-gold-dim" style={{ letterSpacing: "0.02em" }}>
+              <p className="mt-2 font-body text-sm text-text" style={{ letterSpacing: "0.02em" }}>
                 {t("subquote")}
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function About() {
                   <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-gold">
                     {item.title}
                   </h3>
-                  <p className="mt-2 font-body text-sm leading-relaxed text-gold-dim">
+                  <p className="mt-2 font-body text-sm leading-relaxed text-text">
                     {item.desc}
                   </p>
                 </div>

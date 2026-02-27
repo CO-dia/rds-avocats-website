@@ -107,12 +107,12 @@ export default function BookingWidget() {
               </h3>
 
               <div className="mt-2 flex items-center gap-2">
-                <span className="font-body text-xs uppercase tracking-wider text-gold-dim">
+                <span className="font-body text-xs uppercase tracking-wider text-text">
                   {item.duration}
                 </span>
               </div>
 
-              <p className="mt-4 flex-1 font-body text-sm leading-relaxed text-gold/70">
+              <p className="mt-4 flex-1 font-body text-sm leading-relaxed text-text">
                 {item.desc}
               </p>
 
@@ -121,7 +121,7 @@ export default function BookingWidget() {
                   {item.price}
                 </span>
                 {item.priceNote && (
-                  <span className="ml-2 font-body text-xs text-gold-dim">
+                  <span className="ml-2 font-body text-xs text-text">
                     {item.priceNote}
                   </span>
                 )}
@@ -134,7 +134,7 @@ export default function BookingWidget() {
       <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-end">
         <div className="max-w-md flex-1 space-y-3">
           <div>
-            <label className="mb-2 block font-body text-xs font-bold uppercase tracking-[0.2em] text-gold-dim">
+            <label className="mb-2 block font-body text-xs font-bold uppercase tracking-[0.2em] text-text">
               {t("serviceLabel")}
             </label>
             <div className="relative">
@@ -149,7 +149,7 @@ export default function BookingWidget() {
                     setCustomService("");
                   }
                 }}
-                className="w-full appearance-none border border-white/10 bg-black px-4 py-3 pr-10 font-body text-sm text-gold transition-colors focus:border-accent/40 focus:outline-none"
+                className="w-full appearance-none border border-black/10 bg-white px-4 py-3 pr-10 font-body text-sm text-text transition-colors focus:border-accent/40 focus:outline-none"
               >
                 <option value="">{t("servicePlaceholder")}</option>
                 {services.map((s) => (
@@ -159,7 +159,7 @@ export default function BookingWidget() {
                 ))}
               </select>
               <ChevronDown
-                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gold-dim"
+                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-text/50"
                 size={16}
               />
             </div>
@@ -171,7 +171,7 @@ export default function BookingWidget() {
               value={customService}
               onChange={(e) => setCustomService(e.target.value)}
               placeholder={t("customServicePlaceholder")}
-              className="w-full border border-white/10 bg-black px-4 py-3 font-body text-sm text-gold transition-colors placeholder:text-gold-dim/50 focus:border-accent/40 focus:outline-none"
+              className="w-full border border-black/10 bg-white px-4 py-3 font-body text-sm text-text transition-colors placeholder:text-text/50 focus:border-accent/40 focus:outline-none"
             />
           )}
         </div>

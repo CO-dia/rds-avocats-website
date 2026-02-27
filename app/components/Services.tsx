@@ -57,7 +57,7 @@ export default function Services() {
           </h2>
 
           <p
-            className="max-w-md font-body text-sm text-gold-dim lg:text-right"
+            className="max-w-md font-body text-sm text-text lg:text-right"
             style={{ letterSpacing: "0.02em" }}
           >
             {t("subtext")}
@@ -86,7 +86,7 @@ export default function Services() {
                       {service.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-block self-start border border-accent/15 bg-accent/5 px-2.5 py-1 font-body text-xs tracking-wide text-gold/70 transition-colors duration-300 group-hover:border-accent/25 group-hover:text-gold/85"
+                          className="inline-block self-start border border-accent/15 bg-accent/5 px-2.5 py-1 font-body text-xs tracking-wide text-text transition-colors duration-300 group-hover:border-accent/25 group-hover:text-accent"
                         >
                           {tag}
                         </span>
