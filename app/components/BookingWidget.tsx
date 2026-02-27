@@ -52,11 +52,12 @@ export default function BookingWidget() {
     return () => window.removeEventListener("select-service", handler);
   }, []);
 
-  const serviceNote = isAutre && customService
-    ? `Service: Autre — ${customService}`
-    : selectedService
-      ? `Service: ${selectedService}`
-      : "";
+  const serviceNote =
+    isAutre && customService
+      ? `Service: Autre — ${customService}`
+      : selectedService
+        ? `Service: ${selectedService}`
+        : "";
 
   const calLink = serviceNote
     ? `${consultationSlugs[selectedConsultation]}?notes=${encodeURIComponent(serviceNote)}`
@@ -88,12 +89,7 @@ export default function BookingWidget() {
                 <Icon className="text-accent" size={28} strokeWidth={1.5} />
                 {isSelected && (
                   <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-white">
-                    <svg
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                    >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
                         d="M2.5 6L5 8.5L9.5 3.5"
                         stroke="currentColor"
@@ -146,7 +142,10 @@ export default function BookingWidget() {
                 value={selectedService}
                 onChange={(e) => {
                   setSelectedService(e.target.value);
-                  if (e.target.value !== "Autre" && e.target.value !== "Other") {
+                  if (
+                    e.target.value !== "Autre" &&
+                    e.target.value !== "Other"
+                  ) {
                     setCustomService("");
                   }
                 }}
