@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Menu, X, Globe } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 
 export default function Header() {
@@ -43,11 +44,16 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
-        <a
-          href="#accueil"
-          className="font-heading text-2xl font-bold tracking-wider text-accent transition-colors hover:text-accent-light"
-        >
-          RDS<span className="text-gold">.</span>Avocats
+        <a href="#accueil" className="flex items-center gap-5">
+          <Image
+            src="/logo.png"
+            alt="RDS Avocats"
+            width={420}
+            height={120}
+            className="h-12 w-auto md:h-24"
+            priority
+          />
+          <span className="sr-only">RDS Avocats</span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

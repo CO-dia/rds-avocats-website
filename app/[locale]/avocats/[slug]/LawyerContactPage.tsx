@@ -239,11 +239,17 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                 {t("share")}
               </button>
 
-              <div className="mt-8 flex flex-col items-center gap-2">
-                <Link href="/" className="font-heading text-lg font-bold tracking-wider text-accent transition-colors hover:text-accent-light">
-                  RDS<span className="text-gold">.</span>Avocats
+              <div className="mt-10 flex flex-col items-center">
+                <Link href="/" className="inline-flex items-center">
+                  <Image
+                    src="/logo.png"
+                    alt="RDS Avocats"
+                    width={320}
+                    height={96}
+                    className="h-12 w-auto"
+                  />
+                  <span className="sr-only">RDS Avocats</span>
                 </Link>
-                <p className="font-heading text-xs italic text-gold/40">{t("tagline")}</p>
               </div>
             </div>
           </div>
@@ -445,16 +451,17 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
           {t("share")}
         </button>
 
-        <div className="mt-12 flex flex-col items-center gap-2">
-          <Link
-            href="/"
-            className="font-heading text-lg font-bold tracking-wider text-accent transition-colors hover:text-accent-light"
-          >
-            RDS<span className="text-gold">.</span>Avocats
+        <div className="mt-14 flex flex-col items-center">
+          <Link href="/" className="inline-flex items-center">
+            <Image
+              src="/logo.png"
+              alt="RDS Avocats"
+              width={320}
+              height={96}
+              className="h-12 w-auto"
+            />
+            <span className="sr-only">RDS Avocats</span>
           </Link>
-          <p className="font-heading text-xs italic text-gold/40">
-            {t("tagline")}
-          </p>
         </div>
         </div>
       </div>

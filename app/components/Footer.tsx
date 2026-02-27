@@ -1,4 +1,5 @@
 import { Mail, Scale } from "lucide-react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export default function Footer() {
@@ -13,19 +14,22 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contact" className="relative border-t border-white/5 py-16 lg:py-20">
+    <footer
+      id="contact"
+      className="relative border-t border-white/5 py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <div className="flex items-center gap-2">
-              <Scale className="text-accent" size={20} strokeWidth={1.5} />
-              <span className="font-heading text-xl font-bold tracking-wider text-accent">
-                RDS<span className="text-gold">.</span>Avocats
-              </span>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/logo.png"
+                alt="RDS Avocats"
+                width={420}
+                height={126}
+                className="h-14 w-auto sm:h-20"
+              />
             </div>
-            <p className="mt-4 font-heading text-sm italic text-gold/60">
-              {t("tagline")}
-            </p>
           </div>
 
           <div>

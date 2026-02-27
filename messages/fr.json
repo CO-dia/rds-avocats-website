@@ -60,15 +60,43 @@
     "subtext": "Chaque situation est unique — nous adaptons notre approche à vos besoins.",
     "cta": "Prendre rendez-vous",
     "items": [
-      { "title": "Corporatif", "tags": ["Incorporation", "Réorganisation", "Livre corporatif", "Charte"] },
-      { "title": "Commercial", "tags": ["Contrats", "Partenariats", "Fournisseurs"] },
-      { "title": "Repreneuriat", "tags": ["Lettre d'intention", "Lettre d'offre", "Vérification diligente", "Contrat de vente"] },
-      { "title": "Immigration — Personnes", "tags": ["Asile", "Condition humanitaire"] },
+      {
+        "title": "Corporatif",
+        "tags": [
+          "Incorporation",
+          "Réorganisation",
+          "Livre corporatif",
+          "Charte"
+        ]
+      },
+      {
+        "title": "Commercial",
+        "tags": ["Contrats", "Partenariats", "Fournisseurs"]
+      },
+      {
+        "title": "Repreneuriat",
+        "tags": [
+          "Lettre d'intention",
+          "Lettre d'offre",
+          "Vérification diligente",
+          "Contrat de vente"
+        ]
+      },
+      {
+        "title": "Immigration — Personnes",
+        "tags": ["Asile", "Considérations humanitaires"]
+      },
       { "title": "Immigration d'affaires", "tags": ["Travail", "Entreprises"] },
       { "title": "Divorce", "tags": ["À l'amiable", "Contesté"] },
       { "title": "Famille", "tags": ["Garde", "Pension alimentaire"] },
-      { "title": "Pénal / Criminel", "tags": ["Conduite avec facultés affaiblies", "Contestation de ticket"] },
-      { "title": "Civil", "tags": ["Réclamation", "Litige", "Mise en demeure"] },
+      {
+        "title": "Pénal / Criminel",
+        "tags": ["Conduite avec facultés affaiblies", "Contestation de ticket"]
+      },
+      {
+        "title": "Civil",
+        "tags": ["Réclamation", "Litige", "Mise en demeure"]
+      },
       { "title": "Autre", "tags": ["Situation particulière? Contactez-nous."] }
     ]
   },
@@ -130,8 +158,12 @@
   },
   "Lawyers": {
     "hanitra": {
-      "title": "Avocat en droit des affaires",
-      "description": "Spécialisée en droit de l'immigration d'affaires, Hanitra accompagne entrepreneurs et entreprises étrangères dans leur implantation au Canada. Son approche stratégique et humaine permet à ses clients de naviguer les complexités de l'immigration avec confiance."
+      "title": "Avocate",
+      "description": "Avocate en droit des affaires, j’accompagne les entrepreneurs pour bâtir, protéger et faire grandir leur entreprise sans casse-tête juridique. Je transforme les contrats complexes et les obligations légales en solutions simples, claires et stratégiques. Mon rôle : vous éviter les mauvaises surprises et sécuriser vos décisions pendant que vous vous concentrez sur votre croissance. Avec moi, le droit devient un allié concret pour faire avancer vos projets en toute confiance."
+    },
+    "fanta": {
+      "title": "Avocate",
+      "description": "Avocate passionnée, j’exerce en droit de la famille, en protection de la jeunesse, en droit criminel ainsi qu’en immigration et demandes d’asile. J’accueille chaque client avec écoute, sans jugement et avec une réelle volonté de comprendre son histoire. Peu importe votre parcours ou la complexité de votre situation, je m’engage à vous expliquer clairement vos options et à vous accompagner à chaque étape. Sérieuse dans la défense, accessible dans l’approche — je suis là pour vous."
     }
   }
 }

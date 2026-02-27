@@ -34,6 +34,21 @@ export const lawyers: Lawyer[] = [
       },
     ],
   },
+  {
+    slug: "fanta",
+    firstName: "Fanta",
+    lastName: "Sylla",
+    titleKey: "fanta.title",
+    company: "RDS Avocats",
+    photo: "/Fanta.png",
+    phones: [{ labelKey: "office", number: "+15142989199" }],
+    emails: [
+      { labelKey: "professional", address: "fsylla@rds-avocats.com" },
+    ],
+    descriptionKey: "fanta.description",
+    calLink: "https://cal.com/rds-avocats/fanta",
+    socials: [],
+  },
 ];
 
 export function getLawyerBySlug(slug: string): Lawyer | undefined {
