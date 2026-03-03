@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Scale } from "lucide-react";
 import { useTranslations } from "next-intl";
 
@@ -22,17 +23,16 @@ export default function Hero() {
           <div className="h-px w-12 bg-accent/50" />
         </div>
 
-        <h1 className="font-heading text-5xl font-bold tracking-wider sm:text-6xl md:text-7xl lg:text-8xl animate-fade-in-up">
-          <span className="text-gold">RDS</span>{" "}
-          <span className="text-accent">Avocats</span>
+        <h1 className="w-full max-w-md sm:max-w-lg md:max-w-xl animate-fade-in-up">
+          <Image
+            src="/logo_rds.svg"
+            alt="RDS Avocats"
+            width={1080}
+            height={480}
+            className="h-auto w-full object-cover"
+            priority
+          />
         </h1>
-
-        <p
-          className="mt-6 font-heading text-xl italic text-gold-dim sm:text-2xl md:text-3xl animate-fade-in-up delay-200 opacity-0"
-          style={{ letterSpacing: "0.05em" }}
-        >
-          {t("tagline")}
-        </p>
 
         <div className="mt-8 flex items-center gap-3 animate-fade-in delay-400 opacity-0">
           <div className="h-px w-16 bg-linear-to-r from-transparent to-accent/50" />

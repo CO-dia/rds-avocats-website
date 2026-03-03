@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { QRCodeSVG } from "qrcode.react";
 import { useTranslations } from "next-intl";
@@ -10,8 +10,6 @@ import {
   Mail,
   CalendarDays,
   UserPlus,
-  QrCode,
-  X,
   Share2,
   Linkedin,
   Instagram,
@@ -93,16 +91,14 @@ async function shareContact(lawyer: Lawyer, title: string) {
 export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
   const t = useTranslations("Lawyer");
   const tLawyers = useTranslations("Lawyers");
-  const [qrOpen, setQrOpen] = useState(false);
   const [pageUrl, setPageUrl] = useState("");
 
   const lawyerTitle = tLawyers(lawyer.titleKey);
   const lawyerDescription = tLawyers(lawyer.descriptionKey);
 
-  function openQr() {
-    setPageUrl(window.location.href);
-    setQrOpen(true);
-  }
+  useEffect(() => {
+    setPageUrl(typeof window !== "undefined" ? window.location.href : "");
+  }, []);
 
   return (
     <div className="relative min-h-dvh bg-background">
@@ -145,7 +141,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
 
           <div className="flex-1 overflow-y-auto bg-background">
             <div className="p-8 xl:p-10">
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 <button
                   onClick={() => window.open(lawyer.calLink, "_blank")}
                   className="group flex flex-col items-center gap-2 border border-accent/30 bg-accent/5 p-4 transition-all duration-300 hover:border-accent/60 hover:bg-accent/10 active:scale-95"
@@ -160,16 +156,10 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                   <UserPlus size={22} strokeWidth={1.5} className="text-accent transition-transform group-hover:scale-110" />
                   <span className="font-body text-[10px] font-bold uppercase tracking-widest text-gold-dim">{t("addContact")}</span>
                 </button>
-                <button
-                  onClick={openQr}
-                  className="group flex flex-col items-center gap-2 border border-white/10 bg-white/2 p-4 transition-all duration-300 hover:border-accent/30 hover:bg-accent/5 active:scale-95"
-                >
-                  <QrCode size={22} strokeWidth={1.5} className="text-accent transition-transform group-hover:scale-110" />
-                  <span className="font-body text-[10px] font-bold uppercase tracking-widest text-gold-dim">{t("qrCode")}</span>
-                </button>
               </div>
 
-              <div className="mt-6 space-y-3">
+              <div className="mt-6 flex flex-col gap-6 sm:flex-row sm:items-start">
+                <div className="min-w-0 flex-1 space-y-3">
                 {lawyer.phones.map((phone) => (
                   <a key={phone.number} href={`tel:${phone.number.replace(/\s/g, "")}`} className="group flex items-center gap-4 border border-white/5 bg-white/2 p-4 transition-all duration-300 hover:border-accent/30 hover:bg-accent/5">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-accent/30 bg-accent/10">
@@ -194,6 +184,21 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                     <ExternalLink size={14} className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent" />
                   </a>
                 ))}
+                </div>
+                {pageUrl && (
+                  <div className="shrink-0 border border-white/5 bg-white/2 p-4">
+                    <p className="mb-2 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
+                      {t("qrCode")}
+                    </p>
+                    <QRCodeSVG
+                      value={pageUrl}
+                      size={120}
+                      bgColor="#ffffff"
+                      fgColor="#6A1B2E"
+                      level="M"
+                    />
+                  </div>
+                )}
               </div>
 
               <div className="mt-6">
@@ -293,7 +298,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
         </div>
 
         <div className="mx-auto max-w-lg px-6 pb-40 pt-24 sm:pt-28">
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 gap-3">
           <button
             onClick={() => window.open(lawyer.calLink, "_blank")}
             className="group flex flex-col items-center gap-2 border border-accent/30 bg-accent/5 p-4 transition-all duration-300 hover:border-accent/60 hover:bg-accent/10 active:scale-95"
@@ -321,23 +326,10 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
               {t("addContact")}
             </span>
           </button>
-
-          <button
-            onClick={openQr}
-            className="group flex flex-col items-center gap-2 border border-white/10 bg-white/2 p-4 transition-all duration-300 hover:border-accent/30 hover:bg-accent/5 active:scale-95"
-          >
-            <QrCode
-              size={22}
-              strokeWidth={1.5}
-              className="text-accent transition-transform group-hover:scale-110"
-            />
-            <span className="font-body text-[10px] font-bold uppercase tracking-widest text-gold-dim">
-              {t("qrCode")}
-            </span>
-          </button>
         </div>
 
-        <div className="mt-8 space-y-3">
+        <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-start">
+          <div className="min-w-0 flex-1 space-y-3">
           {lawyer.phones.map((phone) => (
             <a
               key={phone.number}
@@ -357,34 +349,49 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
               </div>
               <ExternalLink
                 size={14}
-                className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent"
-              />
-            </a>
-          ))}
+              className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent"
+            />
+          </a>
+        ))}
 
-          {lawyer.emails.map((email) => (
-            <a
-              key={email.address}
-              href={`mailto:${email.address}`}
-              className="group flex items-center gap-4 border border-white/5 bg-white/2 p-4 transition-all duration-300 hover:border-accent/30 hover:bg-accent/5"
-            >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-accent/30 bg-accent/10">
-                <Mail size={18} strokeWidth={1.5} className="text-accent" />
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-text/70">
-                  {t(email.labelKey)}
-                </p>
-                <p className="truncate font-body text-sm text-text group-hover:text-gold">
-                  {email.address}
-                </p>
-              </div>
-              <ExternalLink
-                size={14}
-                className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent"
+        {lawyer.emails.map((email) => (
+          <a
+            key={email.address}
+            href={`mailto:${email.address}`}
+            className="group flex items-center gap-4 border border-white/5 bg-white/2 p-4 transition-all duration-300 hover:border-accent/30 hover:bg-accent/5"
+          >
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-accent/30 bg-accent/10">
+              <Mail size={18} strokeWidth={1.5} className="text-accent" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-body text-[10px] font-bold uppercase tracking-[0.2em] text-text/70">
+                {t(email.labelKey)}
+              </p>
+              <p className="truncate font-body text-sm text-text group-hover:text-gold">
+                {email.address}
+              </p>
+            </div>
+            <ExternalLink
+              size={14}
+              className="shrink-0 text-gold-dim/30 transition-colors group-hover:text-accent"
+            />
+          </a>
+        ))}
+          </div>
+          {pageUrl && (
+            <div className="shrink-0 border border-white/5 bg-white/2 p-4">
+              <p className="mb-2 font-body text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
+                {t("qrCode")}
+              </p>
+              <QRCodeSVG
+                value={pageUrl}
+                size={120}
+                bgColor="#ffffff"
+                fgColor="#6A1B2E"
+                level="M"
               />
-            </a>
-          ))}
+            </div>
+          )}
         </div>
 
         <div className="mt-8">
@@ -465,54 +472,6 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
         </div>
         </div>
       </div>
-
-      {/* QR Code Modal */}
-      {qrOpen && (
-        <div
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-          onClick={() => setQrOpen(false)}
-        >
-          <div
-            className="animate-fade-in-up relative mx-6 w-full max-w-xs border border-white/10 bg-black/95 p-8 backdrop-blur-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setQrOpen(false)}
-              className="absolute right-4 top-4 text-gold-dim transition-colors hover:text-gold"
-            >
-              <X size={20} />
-            </button>
-
-            <div className="flex flex-col items-center">
-              <div className="mb-2 flex items-center gap-2">
-                <div className="h-px w-5 bg-accent" />
-                <span className="font-body text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
-                  {t("scanToShare")}
-                </span>
-                <div className="h-px w-5 bg-accent" />
-              </div>
-
-              <h3 className="mb-6 font-heading text-lg font-bold text-gold">
-                {lawyer.firstName} {lawyer.lastName}
-              </h3>
-
-              <div className="rounded-sm border border-white/10 bg-white p-4">
-                <QRCodeSVG
-                  value={pageUrl}
-                  size={200}
-                  bgColor="#ffffff"
-                  fgColor="#6A1B2E"
-                  level="M"
-                />
-              </div>
-
-              <p className="mt-4 text-center font-body text-xs text-text/70">
-                {t("scanDescription")}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

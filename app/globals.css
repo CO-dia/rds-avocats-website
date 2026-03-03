@@ -3,12 +3,12 @@
 :root {
   /* Change these variables to update colors in one place */
   --background: #ffffff;
-  --foreground: #D8C4A8;
+  --foreground: #f3dfbb;
   --text: #1a1a1a;
   --accent: #6A1B2E;
   --accent-light: #8B2A42;
-  --gold: #D8C4A8;
-  --gold-dim: #B8A488;
+  --gold: #f3dfbb;
+  --gold-dim: #e2c99e;
 }
 
 @theme inline {
