@@ -43,13 +43,13 @@ export default function Hero() {
         <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row animate-fade-in-up delay-500 opacity-0">
           <a
             href="#rendez-vous"
-            className="group flex items-center gap-2 rounded-none border border-accent bg-accent/10 px-8 py-3.5 text-sm font-body font-bold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-accent hover:text-white"
+            className="group flex items-center gap-2 rounded-none border-2 border-accent bg-accent/10 px-8 py-3.5 text-sm font-body font-bold uppercase tracking-widest text-accent transition-all duration-300 hover:bg-accent hover:text-white"
           >
             {t("ctaBooking")}
           </a>
           <a
             href="#a-propos"
-            className="flex items-center gap-2 rounded-none border border-gold/20 px-8 py-3.5 text-sm font-body font-bold uppercase tracking-widest text-gold-dim transition-all duration-300 hover:border-gold/50 hover:text-gold"
+            className="flex items-center gap-2 rounded-none border-2 border-accent/60 bg-white px-8 py-3.5 text-sm font-body font-bold uppercase tracking-widest text-accent transition-all duration-300 hover:bg-accent hover:text-white hover:border-accent"
           >
             {t("ctaDiscover")}
           </a>

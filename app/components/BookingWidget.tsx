@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Clock, Phone, FileCheck, ChevronDown, Calendar } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getCalApi } from "@calcom/embed-react";
+import bookingServicesData from "@/app/data/booking-services.json";
 
 const consultationIcons = [Phone, Clock, FileCheck];
 
@@ -31,10 +32,15 @@ export default function BookingWidget() {
   }>;
 
   const [selectedConsultation, setSelectedConsultation] = useState(0);
-  const [selectedService, setSelectedService] = useState("");
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState<number | null>(null);
+  const [selectedSubjectValue, setSelectedSubjectValue] = useState<string>("");
   const [customService, setCustomService] = useState("");
 
-  const isAutre = selectedService === "Autre" || selectedService === "Other";
+  const serviceIds = Object.keys(bookingServicesData) as string[];
+  const selectedServiceTitle = selectedServiceIndex !== null ? services[selectedServiceIndex]?.title : null;
+  const isOtherService = selectedServiceIndex !== null && serviceIds[selectedServiceIndex] === "other";
+  const isOtherSubject = selectedSubjectValue === "other";
+  const showCustomInput = isOtherService || isOtherSubject;
 
   useEffect(() => {
     (async function () {
@@ -46,22 +52,36 @@ export default function BookingWidget() {
   useEffect(() => {
     const handler = (e: Event) => {
       const title = (e as CustomEvent<string>).detail;
-      setSelectedService(title);
+      const idx = services.findIndex((s) => s.title === title);
+      if (idx !== -1) {
+        setSelectedServiceIndex(idx);
+        setSelectedSubjectValue("");
+      }
     };
     window.addEventListener("select-service", handler);
     return () => window.removeEventListener("select-service", handler);
-  }, []);
+  }, [services]);
 
+  const subjectLabel =
+    selectedServiceIndex !== null && selectedSubjectValue !== "" && selectedSubjectValue !== "other"
+      ? services[selectedServiceIndex].tags[parseInt(selectedSubjectValue, 10)]
+      : null;
   const serviceNote =
-    isAutre && customService
-      ? `Service: Autre — ${customService}`
-      : selectedService
-        ? `Service: ${selectedService}`
+    showCustomInput && customService.trim()
+      ? `Service: ${selectedServiceTitle} — ${customService}`
+      : selectedServiceIndex !== null && subjectLabel
+        ? `Service: ${services[selectedServiceIndex].title} — ${subjectLabel}`
         : "";
 
   const calLink = serviceNote
     ? `${consultationSlugs[selectedConsultation]}?notes=${encodeURIComponent(serviceNote)}`
     : consultationSlugs[selectedConsultation];
+
+  const hasValidSubject = selectedSubjectValue !== "" && (selectedSubjectValue !== "other" || customService.trim() !== "");
+  const canBook = selectedServiceIndex !== null && hasValidSubject;
+
+  const currentSubServiceIds = selectedServiceIndex !== null ? (bookingServicesData as Record<string, string[]>)[serviceIds[selectedServiceIndex]] ?? [] : [];
+  const currentSubServiceLabels = selectedServiceIndex !== null ? services[selectedServiceIndex].tags : [];
 
   return (
     <>
@@ -139,22 +159,21 @@ export default function BookingWidget() {
             </label>
             <div className="relative">
               <select
-                value={selectedService}
+                value={selectedServiceIndex === null ? "" : selectedServiceIndex}
                 onChange={(e) => {
-                  setSelectedService(e.target.value);
-                  if (
-                    e.target.value !== "Autre" &&
-                    e.target.value !== "Other"
-                  ) {
+                  const val = e.target.value;
+                  setSelectedServiceIndex(val === "" ? null : parseInt(val, 10));
+                  setSelectedSubjectValue("");
+                  if (val === "" || serviceIds[parseInt(val, 10)] !== "other") {
                     setCustomService("");
                   }
                 }}
                 className="w-full appearance-none border border-black/10 bg-white px-4 py-3 pr-10 font-body text-sm text-text transition-colors focus:border-accent/40 focus:outline-none"
               >
                 <option value="">{t("servicePlaceholder")}</option>
-                {services.map((s) => (
-                  <option key={s.title} value={s.title}>
-                    {s.title}
+                {serviceIds.map((id, i) => (
+                  <option key={id} value={i}>
+                    {services[i].title}
                   </option>
                 ))}
               </select>
@@ -165,7 +184,34 @@ export default function BookingWidget() {
             </div>
           </div>
 
-          {isAutre && (
+          {selectedServiceIndex !== null && (
+            <div>
+              <label className="mb-2 block font-body text-xs font-bold uppercase tracking-[0.2em] text-text">
+                {t("subServiceLabel")}
+              </label>
+              <div className="relative">
+                <select
+                  value={selectedSubjectValue}
+                  onChange={(e) => setSelectedSubjectValue(e.target.value)}
+                  className="w-full appearance-none border border-black/10 bg-white px-4 py-3 pr-10 font-body text-sm text-text transition-colors focus:border-accent/40 focus:outline-none"
+                >
+                  <option value="">{t("subServicePlaceholder")}</option>
+                  {currentSubServiceIds.map((_, j) => (
+                    <option key={j} value={String(j)}>
+                      {currentSubServiceLabels[j]}
+                    </option>
+                  ))}
+                  <option value="other">{t("subjectOtherOption")}</option>
+                </select>
+                <ChevronDown
+                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-text/50"
+                  size={16}
+                />
+              </div>
+            </div>
+          )}
+
+          {showCustomInput && (
             <input
               type="text"
               value={customService}
@@ -183,7 +229,7 @@ export default function BookingWidget() {
             layout: "month_view",
             useSlotsViewOnSmallScreen: "true",
           })}
-          disabled={!selectedService || (isAutre && !customService)}
+          disabled={!canBook}
           className="inline-flex items-center gap-2 border border-accent bg-accent/10 px-8 py-3 font-body text-sm font-bold uppercase tracking-widest text-accent transition-all hover:bg-accent/20 disabled:cursor-not-allowed disabled:opacity-40"
         >
           <Calendar size={16} strokeWidth={1.5} />

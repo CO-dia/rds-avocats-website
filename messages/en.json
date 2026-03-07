@@ -62,11 +62,11 @@
     "items": [
       {
         "title": "Corporate",
-        "tags": ["Incorporation", "Reorganization", "Corporate book", "Charter"]
+        "tags": ["Incorporation", "Reorganization", "Corporate book", "Charter", "Corporate governance", "Shareholders agreement", "Dissolution", "Annual meetings"]
       },
       {
         "title": "Commercial",
-        "tags": ["Contracts", "Partnerships", "Suppliers"]
+        "tags": ["Contracts", "Partnerships", "Suppliers", "Distribution", "Franchising", "Procurement"]
       },
       {
         "title": "Business acquisition",
@@ -74,24 +74,27 @@
           "Letter of intent",
           "Offer letter",
           "Due diligence",
-          "Sale agreement"
+          "Sale agreement",
+          "Asset purchase",
+          "Share purchase",
+          "Transition"
         ]
       },
       {
         "title": "Immigration — Individuals",
-        "tags": ["Asylum", "Humanitarian considerations"]
+        "tags": ["Asylum", "Humanitarian considerations", "Family reunification", "Work permit (individual)", "Permanent residence application"]
       },
       {
         "title": "Business immigration",
-        "tags": ["Work permits", "Companies"]
+        "tags": ["Work permits", "Companies", "LMIA", "Intra-company transfer", "Provincial nominee program"]
       },
-      { "title": "Divorce", "tags": ["Amicable", "Contested"] },
-      { "title": "Family", "tags": ["Custody", "Child support"] },
+      { "title": "Divorce", "tags": ["Amicable", "Contested", "Separation", "Mediation", "Spousal support"] },
+      { "title": "Family", "tags": ["Custody", "Child support", "Adoption", "Marriage contracts", "Inheritance"] },
       {
         "title": "Criminal",
-        "tags": ["Impaired driving", "Ticket contestation"]
+        "tags": ["Impaired driving", "Ticket contestation", "Drug offences", "Assault", "Bail"]
       },
-      { "title": "Civil", "tags": ["Claims", "Litigation", "Demand letter"] },
+      { "title": "Civil", "tags": ["Claims", "Litigation", "Demand letter", "Small claims", "Contract disputes", "Negligence"] },
       { "title": "Other", "tags": ["Special situation? Contact us."] }
     ]
   },
@@ -102,6 +105,9 @@
     "description": "Choose the format that suits your needs. Every consultation is confidential and solution-oriented.",
     "serviceLabel": "Area of expertise",
     "servicePlaceholder": "Select a service",
+    "subServiceLabel": "Topic",
+    "subServicePlaceholder": "Select a topic",
+    "subjectOtherOption": "Other",
     "customServicePlaceholder": "Describe your needs...",
     "bookButton": "Book now",
     "items": [

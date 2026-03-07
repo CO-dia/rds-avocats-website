@@ -66,12 +66,16 @@
           "Incorporation",
           "Réorganisation",
           "Livre corporatif",
-          "Charte"
+          "Charte",
+          "Gouvernance corporative",
+          "Convention d'actionnaires",
+          "Dissolution",
+          "Assemblées annuelles"
         ]
       },
       {
         "title": "Commercial",
-        "tags": ["Contrats", "Partenariats", "Fournisseurs"]
+        "tags": ["Contrats", "Partenariats", "Fournisseurs", "Distribution", "Franchise", "Approvisionnement"]
       },
       {
         "title": "Repreneuriat",
@@ -79,23 +83,26 @@
           "Lettre d'intention",
           "Lettre d'offre",
           "Vérification diligente",
-          "Contrat de vente"
+          "Contrat de vente",
+          "Achat d'actifs",
+          "Achat d'actions",
+          "Transition"
         ]
       },
       {
         "title": "Immigration — Personnes",
-        "tags": ["Asile", "Considérations humanitaires"]
+        "tags": ["Asile", "Considérations humanitaires", "Réunification familiale", "Permis de travail (individuel)", "Demande de résidence permanente"]
       },
-      { "title": "Immigration d'affaires", "tags": ["Travail", "Entreprises"] },
-      { "title": "Divorce", "tags": ["À l'amiable", "Contesté"] },
-      { "title": "Famille", "tags": ["Garde", "Pension alimentaire"] },
+      { "title": "Immigration d'affaires", "tags": ["Travail", "Entreprises", "EIMT", "Transfert intra-entreprise", "Programme des candidats des provinces"] },
+      { "title": "Divorce", "tags": ["À l'amiable", "Contesté", "Séparation", "Médiation", "Pension alimentaire pour conjoint"] },
+      { "title": "Famille", "tags": ["Garde", "Pension alimentaire", "Adoption", "Contrats de mariage", "Succession"] },
       {
         "title": "Pénal / Criminel",
-        "tags": ["Conduite avec facultés affaiblies", "Contestation de ticket"]
+        "tags": ["Conduite avec facultés affaiblies", "Contestation de ticket", "Infractions drogues", "Voies de fait", "Cautionnement"]
       },
       {
         "title": "Civil",
-        "tags": ["Réclamation", "Litige", "Mise en demeure"]
+        "tags": ["Réclamation", "Litige", "Mise en demeure", "Petites créances", "Litiges contractuels", "Négligence"]
       },
       { "title": "Autre", "tags": ["Situation particulière? Contactez-nous."] }
     ]
@@ -107,6 +114,9 @@
     "description": "Choisissez le format qui correspond à votre besoin. Chaque consultation est confidentielle et orientée solution.",
     "serviceLabel": "Domaine d'expertise",
     "servicePlaceholder": "Sélectionnez un service",
+    "subServiceLabel": "Sujet",
+    "subServicePlaceholder": "Sélectionnez un sujet",
+    "subjectOtherOption": "Autre",
     "customServicePlaceholder": "Décrivez votre besoin...",
     "bookButton": "Réserver maintenant",
     "items": [

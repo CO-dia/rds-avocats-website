@@ -1,0 +1,73 @@
+{
+  "corporate": [
+    "incorporation",
+    "reorganization",
+    "corporate-book",
+    "charter",
+    "corporate-governance",
+    "shareholders-agreement",
+    "dissolution",
+    "annual-meetings"
+  ],
+  "commercial": [
+    "contracts",
+    "partnerships",
+    "suppliers",
+    "distribution",
+    "franchising",
+    "procurement"
+  ],
+  "business-acquisition": [
+    "letter-of-intent",
+    "offer-letter",
+    "due-diligence",
+    "sale-agreement",
+    "asset-purchase",
+    "share-purchase",
+    "transition"
+  ],
+  "immigration-individuals": [
+    "asylum",
+    "humanitarian-considerations",
+    "family-reunification",
+    "work-permit-individual",
+    "pr-application"
+  ],
+  "business-immigration": [
+    "work-permits",
+    "companies",
+    "lmia",
+    "intra-company-transfer",
+    "pnp"
+  ],
+  "divorce": [
+    "amicable",
+    "contested",
+    "separation",
+    "mediation",
+    "spousal-support"
+  ],
+  "family": [
+    "custody",
+    "child-support",
+    "adoption",
+    "marriage-contracts",
+    "inheritance"
+  ],
+  "criminal": [
+    "impaired-driving",
+    "ticket-contestation",
+    "drug-offences",
+    "assault",
+    "bail"
+  ],
+  "civil": [
+    "claims",
+    "litigation",
+    "demand-letter",
+    "small-claims",
+    "contract-disputes",
+    "negligence"
+  ],
+  "other": ["special-situation"]
+}
