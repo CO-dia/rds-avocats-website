@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RDS Avocats
 
-## Getting Started
+Website for RDS Avocats — law firm specializing in business law, business immigration, commercial, corporate, family, criminal and civil law.
 
-First, run the development server:
+## Tech stack
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **next-intl** — internationalization (English / French)
+- **Tailwind CSS 4**
+- **Cal.com** — embedded consultation booking
+- **Lucide React** — icons
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Use the locale switcher or paths `/en` and `/fr` for language.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Path | Description |
+|------|-------------|
+| `app/[locale]/` | Locale-based routes (home, lawyer profile pages) |
+| `app/components/` | Shared UI (Header, Hero, About, Team, Services, Booking, Footer) |
+| `app/data/` | `lawyers.ts` (team data), `booking-services.json` (services & subjects for booking) |
+| `messages/` | `en.json`, `fr.json` — translations and service/tag labels |
+| `i18n/` | next-intl routing and request config |
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` — start dev server
+- `npm run build` — production build
+- `npm run start` — run production server
+- `npm run lint` — run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Booking
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The booking section uses Cal.com. Service and subject (sujet) choices are driven by `app/data/booking-services.json` and labels come from `messages/*.json` (Services.items, Booking keys). Selecting “Other” in the subject dropdown shows a free-text field for the consultation note.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Build and run with Node, or deploy to [Vercel](https://vercel.com) or any Next.js-compatible host. No required environment variables for basic run.
