@@ -22,13 +22,13 @@ Open [http://localhost:3000](http://localhost:3000). Use the locale switcher or 
 
 ## Project structure
 
-| Path | Description |
-|------|-------------|
-| `app/[locale]/` | Locale-based routes (home, lawyer profile pages) |
-| `app/components/` | Shared UI (Header, Hero, About, Team, Services, Booking, Footer) |
-| `app/data/` | `lawyers.ts` (team data), `booking-services.json` (services & subjects for booking) |
-| `messages/` | `en.json`, `fr.json` — translations and service/tag labels |
-| `i18n/` | next-intl routing and request config |
+| Path              | Description                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------- |
+| `app/[locale]/`   | Locale-based routes (home, lawyer profile pages)                                    |
+| `app/components/` | Shared UI (Header, Hero, About, Team, Services, Booking, Footer)                    |
+| `app/data/`       | `lawyers.ts` (team data), `booking-services.json` (services & subjects for booking) |
+| `messages/`       | `en.json`, `fr.json` — translations and service/tag labels                          |
+| `i18n/`           | next-intl routing and request config                                                |
 
 ## Scripts
 
@@ -40,7 +40,3 @@ Open [http://localhost:3000](http://localhost:3000). Use the locale switcher or 
 ## Booking
 
 The booking section uses Cal.com. Service and subject (sujet) choices are driven by `app/data/booking-services.json` and labels come from `messages/*.json` (Services.items, Booking keys). Selecting “Other” in the subject dropdown shows a free-text field for the consultation note.
-
-## Deploy
-
-Build and run with Node, or deploy to [Vercel](https://vercel.com) or any Next.js-compatible host. No required environment variables for basic run.
