@@ -35,24 +35,38 @@ export default function Header() {
     router.replace(pathname, { locale: next });
   }
 
+  const navLinkClassName = scrolled
+    ? "text-sm font-body tracking-widest uppercase text-text/80 transition-colors duration-300 hover:text-accent"
+    : "text-sm font-body tracking-widest uppercase text-text/80 transition-colors duration-300 hover:text-accent";
+
+  const localeButtonClassName = scrolled
+    ? "flex cursor-pointer items-center gap-1.5 border border-black/10 bg-white/70 px-3 py-1.5 text-xs font-body font-bold uppercase tracking-widest text-text/80 backdrop-blur-sm transition-colors duration-300 hover:border-accent/30 hover:text-accent"
+    : "flex cursor-pointer items-center gap-1.5 border border-black/10 bg-white/70 px-3 py-1.5 text-xs font-body font-bold uppercase tracking-widest text-text/80 backdrop-blur-sm transition-colors duration-300 hover:border-accent/30 hover:text-accent";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-black/95 backdrop-blur-md shadow-lg shadow-black/20 py-3"
+          ? "bg-white/90 backdrop-blur-md shadow-lg shadow-black/10 py-3"
           : "bg-transparent py-6"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
         <a href="#accueil" className="flex items-center gap-5">
-          <Image
-            src="/logo.png"
-            alt="RDS Avocats"
-            width={420}
-            height={120}
-            className="h-12 w-auto md:h-24"
-            priority
-          />
+          <span
+            className={`inline-flex items-center ${
+              scrolled ? "" : ""
+            }`}
+          >
+            <Image
+              src="/logo.png"
+              alt="RDS Avocats"
+              width={420}
+              height={120}
+              className="h-12 w-auto md:h-24"
+              priority
+            />
+          </span>
           <span className="sr-only">RDS Avocats</span>
         </a>
 
@@ -61,14 +75,14 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-body tracking-widest uppercase text-gold-dim transition-colors duration-300 hover:text-gold"
+              className={navLinkClassName}
             >
               {link.label}
             </a>
           ))}
           <button
             onClick={switchLocale}
-            className="flex items-center gap-1.5 border border-white/10 px-3 py-1.5 text-xs font-body font-bold uppercase tracking-widest text-gold-dim transition-colors duration-300 hover:border-accent/30 hover:text-gold"
+            className={localeButtonClassName}
           >
             <Globe size={14} strokeWidth={1.5} />
             {t("switchLocale")}
@@ -77,7 +91,7 @@ export default function Header() {
 
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="text-gold md:hidden"
+          className={scrolled ? "text-accent md:hidden" : "text-gold md:hidden"}
           aria-label="Menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -85,14 +99,14 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <nav className="animate-fade-in border-t border-white/5 bg-black/98 backdrop-blur-md md:hidden">
+        <nav className="animate-fade-in border-t border-black/5 bg-white/95 backdrop-blur-md md:hidden">
           <div className="flex flex-col px-6 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="border-b border-white/5 py-4 text-sm font-body tracking-widest uppercase text-gold-dim transition-colors hover:text-gold"
+                className="border-b border-black/5 py-4 text-sm font-body tracking-widest uppercase text-text/80 transition-colors hover:text-accent"
               >
                 {link.label}
               </a>
@@ -102,7 +116,7 @@ export default function Header() {
                 switchLocale();
                 setMobileOpen(false);
               }}
-              className="flex items-center gap-2 py-4 text-sm font-body tracking-widest uppercase text-gold-dim transition-colors hover:text-gold"
+              className="flex cursor-pointer items-center gap-2 py-4 text-sm font-body tracking-widest uppercase text-text/80 transition-colors hover:text-accent"
             >
               <Globe size={14} strokeWidth={1.5} />
               {t("switchLocale")}

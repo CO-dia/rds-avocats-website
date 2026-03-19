@@ -28,7 +28,7 @@
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(1200px 800px at 50% -20%, rgba(106, 27, 46, 0.06), transparent 60%), var(--background);
   color: var(--text);
   font-family: var(--font-body), sans-serif;
 }

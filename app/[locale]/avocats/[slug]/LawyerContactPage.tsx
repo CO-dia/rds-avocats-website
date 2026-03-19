@@ -11,7 +11,6 @@ import {
   CalendarDays,
   UserPlus,
   Share2,
-  Linkedin,
   Instagram,
   Facebook,
   Twitter,
@@ -22,7 +21,6 @@ import {
 import type { Lawyer } from "@/app/data/lawyers";
 
 const socialIcons: Record<string, typeof Globe> = {
-  linkedin: Linkedin,
   instagram: Instagram,
   facebook: Facebook,
   twitter: Twitter,
@@ -50,7 +48,7 @@ function generateVCard(lawyer: Lawyer, title: string, description: string): stri
     lines.push(`NOTE:${description.replace(/\n/g, "\\n")}`);
   }
 
-  lawyer.socials.forEach((s) => {
+  lawyer.socials.filter((s) => s.platform !== "linkedin").forEach((s) => {
     lines.push(`URL:${s.url}`);
   });
 
@@ -95,6 +93,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
 
   const lawyerTitle = tLawyers(lawyer.titleKey);
   const lawyerDescription = tLawyers(lawyer.descriptionKey);
+  const socials = lawyer.socials.filter((s) => s.platform !== "linkedin");
 
   useEffect(() => {
     setPageUrl(typeof window !== "undefined" ? window.location.href : "");
@@ -109,6 +108,15 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
         <ArrowLeft size={14} />
         {t("backHome")}
       </Link>
+
+      <button
+        type="button"
+        onClick={() => window.open(lawyer.calLink, "_blank")}
+        className="fixed right-4 top-4 z-50 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/15 bg-black/60 px-4 py-2 font-body text-xs font-bold uppercase tracking-widest text-gold-dim backdrop-blur-md transition-colors hover:border-accent/40 hover:text-gold"
+      >
+        <CalendarDays size={14} strokeWidth={1.5} className="text-accent" />
+        {t("appointment")}
+      </button>
 
       {/* Desktop: two-column card layout */}
       <div className="hidden lg:flex lg:min-h-dvh lg:items-center lg:justify-center lg:p-12">
@@ -131,7 +139,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
               </div>
               <h1 className="font-heading text-3xl font-bold text-gold">
                 {lawyer.firstName}{" "}
-                <span className="text-accent">{lawyer.lastName}</span>
+                <span className="text-white">{lawyer.lastName}</span>
               </h1>
               <p className="mt-1 font-body text-sm text-gold-dim">
                 {lawyerTitle}
@@ -211,14 +219,14 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                 </div>
               </div>
 
-              {lawyer.socials.length > 0 && (
+              {socials.length > 0 && (
                 <div className="mt-6">
                   <div className="mb-3 flex items-center gap-2">
                     <div className="h-px w-5 bg-accent" />
                     <span className="font-body text-[10px] font-bold uppercase tracking-[0.3em] text-accent">{t("socials")}</span>
                   </div>
                   <div className="space-y-3">
-                    {lawyer.socials.map((social) => {
+                    {socials.map((social) => {
                       const Icon = socialIcons[social.platform] || Globe;
                       return (
                         <a key={social.platform} href={social.url} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 border border-white/5 bg-white/2 p-4 transition-all duration-300 hover:border-accent/30 hover:bg-accent/5">
@@ -272,13 +280,13 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
               priority
               className="object-cover object-top"
             />
-            <div className="absolute inset-0 bg-linear-to-b from-black/20 via-transparent to-background" />
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/15 via-transparent to-white" />
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-white to-transparent" />
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 translate-y-1/2 px-6">
             <div className="mx-auto max-w-lg">
-              <div className="border border-white/10 bg-black/80 px-6 py-5 backdrop-blur-xl sm:px-8 sm:py-6">
+              <div className="border border-white/10 bg-accent/95 px-6 py-5 backdrop-blur-xl sm:px-8 sm:py-6">
                 <div className="mb-1 flex items-center gap-2">
                   <div className="h-px w-5 bg-accent" />
                   <span className="font-body text-[10px] font-bold uppercase tracking-[0.3em] text-accent">
@@ -287,7 +295,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
                 </div>
                 <h1 className="font-heading text-2xl font-bold text-gold sm:text-3xl">
                   {lawyer.firstName}{" "}
-                  <span className="text-accent">{lawyer.lastName}</span>
+                  <span className="text-white">{lawyer.lastName}</span>
                 </h1>
                 <p className="mt-1 font-body text-sm text-gold-dim">
                   {lawyerTitle}
@@ -408,7 +416,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
           </div>
         </div>
 
-        {lawyer.socials.length > 0 && (
+        {socials.length > 0 && (
           <div className="mt-8">
             <div className="mb-3 flex items-center gap-2">
               <div className="h-px w-5 bg-accent" />
@@ -417,7 +425,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
               </span>
             </div>
             <div className="space-y-3">
-              {lawyer.socials.map((social) => {
+              {socials.map((social) => {
                 const Icon = socialIcons[social.platform] || Globe;
                 return (
                   <a

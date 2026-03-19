@@ -37,7 +37,7 @@ export default function About() {
               {t("paragraph1")}
             </p>
             <p className="font-body text-base leading-relaxed text-text sm:text-lg" style={{ letterSpacing: "0.02em" }}>
-              <strong className="text-gold">{t("paragraph2Strong")}</strong>{" "}
+              <strong className="text-accent">{t("paragraph2Strong")}</strong>{" "}
               {t("paragraph2")}
             </p>
             <p className="font-body text-base leading-relaxed text-text sm:text-lg" style={{ letterSpacing: "0.02em" }}>
@@ -67,7 +67,7 @@ export default function About() {
                     size={28}
                     strokeWidth={1.5}
                   />
-                  <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-gold">
+                  <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-accent">
                     {item.title}
                   </h3>
                   <p className="mt-2 font-body text-sm leading-relaxed text-text">

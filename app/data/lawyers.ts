@@ -26,13 +26,7 @@ export const lawyers: Lawyer[] = [
     ],
     descriptionKey: "hanitra.description",
     calLink: "https://cal.com/rds-avocats/hanitra",
-    socials: [
-      {
-        platform: "linkedin",
-        url: "https://linkedin.com/in/",
-        label: "LinkedIn",
-      },
-    ],
+    socials: [],
   },
   {
     slug: "fanta",
@@ -42,9 +36,7 @@ export const lawyers: Lawyer[] = [
     company: "RDS Avocats",
     photo: "/Fanta.png",
     phones: [{ labelKey: "office", number: "+15142989199" }],
-    emails: [
-      { labelKey: "professional", address: "fsylla@rds-avocats.com" },
-    ],
+    emails: [{ labelKey: "professional", address: "fsylla@rds-avocats.com" }],
     descriptionKey: "fanta.description",
     calLink: "https://cal.com/rds-avocats/fanta",
     socials: [],

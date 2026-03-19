@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
@@ -42,6 +42,15 @@ export default function Footer() {
             >
               <Mail size={16} strokeWidth={1.5} />
               info@rds-avocats.com
+            </a>
+            <a
+              href="https://www.linkedin.com/company/rds-avocats-sencrl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center gap-3 font-body text-sm text-text transition-colors hover:text-accent"
+            >
+              <Linkedin size={16} strokeWidth={1.5} />
+              LinkedIn
             </a>
           </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Clock, Phone, FileCheck, ChevronDown, Calendar } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Clock, Phone, FileCheck, ChevronDown, Calendar, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getCalApi } from "@calcom/embed-react";
 import bookingServicesData from "@/app/data/booking-services.json";
@@ -35,6 +35,8 @@ export default function BookingWidget() {
   const [selectedServiceIndex, setSelectedServiceIndex] = useState<number | null>(null);
   const [selectedSubjectValue, setSelectedSubjectValue] = useState<string>("");
   const [customService, setCustomService] = useState("");
+  const [calOpen, setCalOpen] = useState(false);
+  const calContainerRef = useRef<HTMLDivElement | null>(null);
 
   const serviceIds = Object.keys(bookingServicesData) as string[];
   const selectedServiceTitle = selectedServiceIndex !== null ? services[selectedServiceIndex]?.title : null;
@@ -83,6 +85,52 @@ export default function BookingWidget() {
   const currentSubServiceIds = selectedServiceIndex !== null ? (bookingServicesData as Record<string, string[]>)[serviceIds[selectedServiceIndex]] ?? [] : [];
   const currentSubServiceLabels = selectedServiceIndex !== null ? services[selectedServiceIndex].tags : [];
 
+  useEffect(() => {
+    if (!calOpen) return;
+    const node = calContainerRef.current;
+    if (!node) return;
+
+    let cancelled = false;
+    node.innerHTML = "";
+
+    (async () => {
+      const cal = await getCalApi({ namespace: "appel-decouverte" });
+      if (cancelled) return;
+      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      cal("inline", { calLink, elementOrSelector: node });
+    })();
+
+    const applyIframeSizing = () => {
+      const iframe = node.querySelector("iframe") as HTMLIFrameElement | null;
+      if (!iframe) return false;
+      iframe.style.width = "100%";
+      iframe.style.height = "85vh";
+      iframe.style.border = "0";
+      iframe.setAttribute("scrolling", "no");
+      return true;
+    };
+
+    applyIframeSizing();
+    const observer = new MutationObserver(() => {
+      applyIframeSizing();
+    });
+    observer.observe(node, { childList: true, subtree: true });
+
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+    };
+  }, [calOpen, calLink]);
+
+  useEffect(() => {
+    if (!calOpen) return;
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [calOpen]);
+
   return (
     <>
       <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -122,7 +170,7 @@ export default function BookingWidget() {
                 )}
               </div>
 
-              <h3 className="mt-6 font-heading text-lg font-bold text-gold">
+              <h3 className="mt-6 font-heading text-lg font-bold text-accent">
                 {item.title}
               </h3>
 
@@ -223,19 +271,44 @@ export default function BookingWidget() {
         </div>
 
         <button
-          data-cal-namespace="appel-decouverte"
-          data-cal-link={calLink}
-          data-cal-config={JSON.stringify({
-            layout: "month_view",
-            useSlotsViewOnSmallScreen: "true",
-          })}
           disabled={!canBook}
+          type="button"
+          onClick={async () => {
+            if (!canBook) return;
+            setCalOpen(true);
+          }}
           className="inline-flex items-center gap-2 border border-accent bg-accent/10 px-8 py-3 font-body text-sm font-bold uppercase tracking-widest text-accent transition-all hover:bg-accent/20 disabled:cursor-not-allowed disabled:opacity-40"
         >
           <Calendar size={16} strokeWidth={1.5} />
           {t("bookButton")}
         </button>
       </div>
+
+      {calOpen && (
+        <div
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          aria-modal="true"
+          role="dialog"
+        >
+          <button
+            type="button"
+            onClick={() => setCalOpen(false)}
+            className="absolute right-4 top-4 inline-flex cursor-pointer items-center gap-2 border border-white/15 bg-black/60 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-white/90 backdrop-blur-sm transition-colors hover:border-accent/40 hover:text-white"
+            aria-label="Close"
+          >
+            <X size={14} strokeWidth={1.5} className="text-accent" />
+            Fermer
+          </button>
+
+          <div className="w-full max-w-5xl">
+            <div
+              id="cal-inline-container"
+              className="h-[85vh] w-full overflow-hidden"
+              ref={calContainerRef}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
