@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Clock, Phone, FileCheck, ChevronDown, Calendar, X } from "lucide-react";
+import {
+  Clock,
+  Phone,
+  FileCheck,
+  ChevronDown,
+  Calendar,
+  X,
+} from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getCalApi } from "@calcom/embed-react";
 import bookingServicesData from "@/app/data/booking-services.json";
@@ -13,6 +20,21 @@ const consultationSlugs = [
   "hanitra-ravalimanantsoa/consultation-strategique",
   "hanitra-ravalimanantsoa/consultation-approfondie",
 ];
+
+/** Cal.com path + query: dark theme + optional notes (embed reads path only; theme helps match overlay). */
+function buildCalEmbedPath(slug: string, notes: string | null) {
+  const params = new URLSearchParams();
+  params.set("theme", "dark");
+  if (notes) params.set("title", notes);
+  return `${slug}?${params.toString()}`;
+}
+
+const calEmbedUiConfig = {
+  layout: "month_view" as const,
+  theme: "dark" as const,
+  /** Stack slots on small widths instead of squeezing 3 columns */
+  useSlotsViewOnSmallScreen: "true" as const,
+};
 
 export default function BookingWidget() {
   const t = useTranslations("Booking");
@@ -32,22 +54,32 @@ export default function BookingWidget() {
   }>;
 
   const [selectedConsultation, setSelectedConsultation] = useState(0);
-  const [selectedServiceIndex, setSelectedServiceIndex] = useState<number | null>(null);
+  const [selectedServiceIndex, setSelectedServiceIndex] = useState<
+    number | null
+  >(null);
   const [selectedSubjectValue, setSelectedSubjectValue] = useState<string>("");
   const [customService, setCustomService] = useState("");
   const [calOpen, setCalOpen] = useState(false);
   const calContainerRef = useRef<HTMLDivElement | null>(null);
 
   const serviceIds = Object.keys(bookingServicesData) as string[];
-  const selectedServiceTitle = selectedServiceIndex !== null ? services[selectedServiceIndex]?.title : null;
-  const isOtherService = selectedServiceIndex !== null && serviceIds[selectedServiceIndex] === "other";
+  const selectedServiceTitle =
+    selectedServiceIndex !== null
+      ? services[selectedServiceIndex]?.title
+      : null;
+  const isOtherService =
+    selectedServiceIndex !== null &&
+    serviceIds[selectedServiceIndex] === "other";
   const isOtherSubject = selectedSubjectValue === "other";
   const showCustomInput = isOtherService || isOtherSubject;
 
   useEffect(() => {
     (async function () {
       const cal = await getCalApi({ namespace: "appel-decouverte" });
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      cal("ui", {
+        hideEventTypeDetails: false,
+        ...calEmbedUiConfig,
+      });
     })();
   }, []);
 
@@ -65,7 +97,9 @@ export default function BookingWidget() {
   }, [services]);
 
   const subjectLabel =
-    selectedServiceIndex !== null && selectedSubjectValue !== "" && selectedSubjectValue !== "other"
+    selectedServiceIndex !== null &&
+    selectedSubjectValue !== "" &&
+    selectedSubjectValue !== "other"
       ? services[selectedServiceIndex].tags[parseInt(selectedSubjectValue, 10)]
       : null;
   const serviceNote =
@@ -75,15 +109,24 @@ export default function BookingWidget() {
         ? `Service: ${services[selectedServiceIndex].title} — ${subjectLabel}`
         : "";
 
-  const calLink = serviceNote
-    ? `${consultationSlugs[selectedConsultation]}?notes=${encodeURIComponent(serviceNote)}`
-    : consultationSlugs[selectedConsultation];
+  const calLink = buildCalEmbedPath(
+    consultationSlugs[selectedConsultation],
+    serviceNote || null,
+  );
 
-  const hasValidSubject = selectedSubjectValue !== "" && (selectedSubjectValue !== "other" || customService.trim() !== "");
+  const hasValidSubject =
+    selectedSubjectValue !== "" &&
+    (selectedSubjectValue !== "other" || customService.trim() !== "");
   const canBook = selectedServiceIndex !== null && hasValidSubject;
 
-  const currentSubServiceIds = selectedServiceIndex !== null ? (bookingServicesData as Record<string, string[]>)[serviceIds[selectedServiceIndex]] ?? [] : [];
-  const currentSubServiceLabels = selectedServiceIndex !== null ? services[selectedServiceIndex].tags : [];
+  const currentSubServiceIds =
+    selectedServiceIndex !== null
+      ? ((bookingServicesData as Record<string, string[]>)[
+          serviceIds[selectedServiceIndex]
+        ] ?? [])
+      : [];
+  const currentSubServiceLabels =
+    selectedServiceIndex !== null ? services[selectedServiceIndex].tags : [];
 
   useEffect(() => {
     if (!calOpen) return;
@@ -96,17 +139,41 @@ export default function BookingWidget() {
     (async () => {
       const cal = await getCalApi({ namespace: "appel-decouverte" });
       if (cancelled) return;
-      cal("ui", { hideEventTypeDetails: false, layout: "month_view" });
-      cal("inline", { calLink, elementOrSelector: node });
+      cal("ui", {
+        hideEventTypeDetails: false,
+        ...calEmbedUiConfig,
+      });
+      cal("inline", {
+        calLink,
+        elementOrSelector: node,
+        config: {
+          layout: calEmbedUiConfig.layout,
+          theme: calEmbedUiConfig.theme,
+          useSlotsViewOnSmallScreen: calEmbedUiConfig.useSlotsViewOnSmallScreen,
+        },
+      });
     })();
 
     const applyIframeSizing = () => {
       const iframe = node.querySelector("iframe") as HTMLIFrameElement | null;
       if (!iframe) return false;
       iframe.style.width = "100%";
-      iframe.style.height = "85vh";
+      iframe.style.maxWidth = "100%";
       iframe.style.border = "0";
-      iframe.setAttribute("scrolling", "no");
+      iframe.style.display = "block";
+      iframe.style.backgroundColor = "transparent";
+      // Payment + Stripe needs height; desktop min ~1000px so "Pay" isn’t clipped.
+      // Narrow viewports use almost full height so inner Cal.com can scroll if needed.
+      if (typeof window !== "undefined") {
+        const gap = 16;
+        const available = window.innerHeight - gap;
+        const minH = window.innerWidth >= 768 ? 1000 : Math.min(available, 720);
+        iframe.style.height = `${Math.max(available, minH)}px`;
+      } else {
+        iframe.style.height = "min(100dvh - 1rem, 1100px)";
+      }
+      // Must allow scrolling — required when Cal content is taller than iframe.
+      iframe.setAttribute("scrolling", "yes");
       return true;
     };
 
@@ -207,10 +274,14 @@ export default function BookingWidget() {
             </label>
             <div className="relative">
               <select
-                value={selectedServiceIndex === null ? "" : selectedServiceIndex}
+                value={
+                  selectedServiceIndex === null ? "" : selectedServiceIndex
+                }
                 onChange={(e) => {
                   const val = e.target.value;
-                  setSelectedServiceIndex(val === "" ? null : parseInt(val, 10));
+                  setSelectedServiceIndex(
+                    val === "" ? null : parseInt(val, 10),
+                  );
                   setSelectedSubjectValue("");
                   if (val === "" || serviceIds[parseInt(val, 10)] !== "other") {
                     setCustomService("");
@@ -286,24 +357,25 @@ export default function BookingWidget() {
 
       {calOpen && (
         <div
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-start justify-center overflow-y-auto overscroll-y-contain bg-black/80 px-2 pb-6 pt-2 backdrop-blur-md [-webkit-overflow-scrolling:touch]"
           aria-modal="true"
           role="dialog"
         >
           <button
             type="button"
             onClick={() => setCalOpen(false)}
-            className="absolute right-4 top-4 inline-flex cursor-pointer items-center gap-2 border border-white/15 bg-black/60 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-white/90 backdrop-blur-sm transition-colors hover:border-accent/40 hover:text-white"
+            className="fixed right-2 top-2 z-101 inline-flex cursor-pointer items-center gap-2 border border-white/20 bg-zinc-950/95 px-3 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-white/90 shadow-lg transition-colors hover:border-accent/50 hover:text-white sm:right-3 sm:top-3"
             aria-label="Close"
           >
             <X size={14} strokeWidth={1.5} className="text-accent" />
             Fermer
           </button>
 
-          <div className="w-full max-w-5xl">
+          {/* Wide shell: Cal 3-col calendar; shell must not clip — scroll = overlay + iframe */}
+          <div className="mt-10 w-full max-w-[min(100vw-1rem,1320px)] shrink-0 sm:mt-12">
             <div
               id="cal-inline-container"
-              className="h-[85vh] w-full overflow-hidden"
+              className="cal-embed-shell w-full overflow-x-auto overflow-y-visible rounded-lg bg-zinc-950 ring-1 ring-white/10 shadow-2xl"
               ref={calContainerRef}
             />
           </div>
