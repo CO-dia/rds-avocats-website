@@ -11,7 +11,9 @@ import {
   Gavel,
   FileText,
   MoreHorizontal,
+  ChevronDown,
 } from "lucide-react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 
 const serviceIcons = [
@@ -29,6 +31,7 @@ const serviceIcons = [
 
 export default function Services() {
   const t = useTranslations("Services");
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const items = t.raw("items") as Array<{
     title: string;
     tags: string[];
@@ -64,54 +67,70 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 space-y-3">
           {items.map((service, i) => {
             const Icon = serviceIcons[i];
+            const isOpen = openIndex === i;
 
             return (
-              <div key={service.title} className="group relative">
-                <div className="relative h-full overflow-hidden border border-black/5 bg-white/60 backdrop-blur-sm transition-all duration-400 hover:border-accent/25 hover:bg-white/75">
-                  <div className="absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-400 bg-linear-to-r from-transparent via-accent/50 to-transparent group-hover:opacity-100" />
+              <div
+                key={service.title}
+                className="overflow-hidden border border-black/5 bg-white/60 backdrop-blur-sm transition-colors duration-300 hover:border-accent/25"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="flex w-full items-center gap-4 p-5 text-left cursor-pointer"
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/5 text-accent">
+                    <Icon size={18} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="flex-1 font-heading text-base font-bold tracking-wide text-accent">
+                    {service.title}
+                  </h3>
+                  <ChevronDown
+                    size={18}
+                    className={`shrink-0 text-accent/70 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
 
-                  <div className="flex h-full flex-col p-6">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-accent/5 text-accent transition-all duration-400 group-hover:bg-accent/10 group-hover:text-accent">
-                      <Icon size={20} strokeWidth={1.5} />
-                    </div>
+                <div
+                  className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] border-t border-white/5" : "grid-rows-[0fr]"}`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="p-5 pt-4">
+                      <ul className="space-y-2">
+                        {service.tags.map((tag) => (
+                          <li
+                            key={tag}
+                            className="list-disc ml-5 font-body text-sm text-text marker:text-black/80"
+                          >
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
 
-                    <h3 className="mt-4 font-heading text-base font-bold tracking-wide text-accent">
-                      {service.title}
-                    </h3>
-
-                    <div className="mt-3 flex flex-1 flex-wrap content-start gap-2">
-                      {service.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-block self-start rounded-full border border-accent/15 bg-accent/5 px-3 py-1 font-body text-xs tracking-wide text-text transition-colors duration-300 group-hover:border-accent/25 group-hover:text-accent"
+                      <div className="mt-5 pt-4 border-t border-white/5">
+                        <a
+                          href="#rendez-vous"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            window.dispatchEvent(
+                              new CustomEvent("select-service", {
+                                detail: service.title,
+                              }),
+                            );
+                            document
+                              .getElementById("rendez-vous")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                          className="inline-flex items-center gap-2 font-body text-xs font-bold uppercase tracking-widest text-accent/70 transition-colors hover:text-accent"
                         >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="mt-5 pt-4 border-t border-white/5">
-                      <a
-                        href="#rendez-vous"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          window.dispatchEvent(
-                            new CustomEvent("select-service", {
-                              detail: service.title,
-                            })
-                          );
-                          document
-                            .getElementById("rendez-vous")
-                            ?.scrollIntoView({ behavior: "smooth" });
-                        }}
-                        className="inline-flex items-center gap-2 font-body text-xs font-bold uppercase tracking-widest text-accent/70 transition-colors hover:text-accent"
-                      >
-                        {t("cta")}
-                        <span className="text-[10px] transition-transform group-hover:translate-x-0.5">→</span>
-                      </a>
+                          {t("cta")}
+                          <span className="text-[10px]">→</span>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
