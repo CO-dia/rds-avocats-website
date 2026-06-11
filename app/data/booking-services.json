@@ -2,14 +2,15 @@
   "corporate": [
     "incorporation",
     "reorganization",
+    "shareholders-agreement",
+    "corporate-governance",
     "corporate-book",
     "charter",
-    "corporate-governance",
-    "shareholders-agreement",
     "dissolution",
     "annual-meetings"
   ],
   "commercial": [
+    "contract-negotiation",
     "contracts",
     "partnerships",
     "suppliers",
@@ -18,6 +19,7 @@
     "procurement"
   ],
   "business-acquisition": [
+    "business-sale",
     "letter-of-intent",
     "offer-letter",
     "due-diligence",
@@ -39,35 +41,6 @@
     "lmia",
     "intra-company-transfer",
     "pnp"
-  ],
-  "divorce": [
-    "amicable",
-    "contested",
-    "separation",
-    "mediation",
-    "spousal-support"
-  ],
-  "family": [
-    "custody",
-    "child-support",
-    "adoption",
-    "marriage-contracts",
-    "inheritance"
-  ],
-  "criminal": [
-    "impaired-driving",
-    "ticket-contestation",
-    "drug-offences",
-    "assault",
-    "bail"
-  ],
-  "civil": [
-    "claims",
-    "litigation",
-    "demand-letter",
-    "small-claims",
-    "contract-disputes",
-    "negligence"
   ],
   "other": ["special-situation"]
 }

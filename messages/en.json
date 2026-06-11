@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "RDS Avocats | Your future, our mission",
-    "description": "Law firm specializing in business law, business immigration, commercial, corporate, family, criminal and civil law. Strategic support to build, invest and succeed in Canada."
+    "title": "RDS Avocats | Making Law Simple",
+    "description": "Law firm specializing in business, corporate and commercial law, as well as immigration. Coherent, effective legal solutions tailored to our clients' full reality."
   },
   "Header": {
     "home": "Home",
@@ -14,38 +14,38 @@
   },
   "Hero": {
     "title": "RDS Avocats",
-    "tagline": "Your future, our mission",
+    "tagline": "Making Law Simple",
     "welcomeTitle": "Welcome to RDS Avocats",
-    "welcomeSubtitle": "Tell us about your situation and book a consultation in just a few clicks. We’ll guide you to the best option.",
+    "welcomeSubtitle": "Accessible law is law that truly belongs to you. Tell us about your situation and book a consultation in just a few clicks.",
     "ctaBooking": "Book a consultation",
     "ctaDiscover": "Discover the firm"
   },
   "About": {
     "label": "About",
-    "headingLine1": "One firm,",
-    "headingLine2": "every solution.",
-    "paragraph1": "At RDS Avocats, we bring together a team with complementary expertise in business, commercial and corporate law, as well as immigration, family, civil and criminal law. This diversity allows us to support our clients in every dimension of their reality, both personal and professional.",
-    "paragraph2Strong": "Our distinctive strength:",
-    "paragraph2": "business immigration. We help entrepreneurs and foreign companies establish themselves in Canada while structuring their expansion and life projects here.",
-    "paragraph3": "With RDS Avocats, you benefit from strategic, rigorous and human support — a solid legal partner to build, invest and succeed in Canada.",
-    "quote": "Our approach: clear, strategic and growth-oriented.",
-    "subquote": "We speak your language, we understand the entrepreneurial reality, and we help you move forward without slowing your momentum.",
+    "headingLine1": "Making Law",
+    "headingLine2": "Simple.",
+    "paragraph1": "Our firm offers comprehensive expertise in business, corporate and commercial law, as well as immigration. This integrated approach allows us to deliver coherent, effective legal solutions tailored to our clients' full reality.",
+    "paragraph2Strong": "Our practice:",
+    "paragraph2": "primarily focused on corporate law, business acquisition and commercial law — incorporation and reorganization, shareholders' agreements, business sales and purchases, contract negotiation and drafting, strategic structuring and legal support for growing entrepreneurs.",
+    "paragraph3": "Our commitment: making law simple and accessible — law that truly belongs to you.",
+    "quote": "What sets us apart is not what we know.",
+    "subquote": "It's what you understand after speaking with us. Accessible law is law that truly belongs to you.",
     "strengths": [
       {
-        "title": "Complementary expertise",
-        "desc": "Business, immigration, family, criminal and civil law under one roof."
+        "title": "Integrated expertise",
+        "desc": "Business, corporate, commercial and immigration law under one approach."
       },
       {
-        "title": "Business immigration",
-        "desc": "We help entrepreneurs and foreign companies establish themselves in Canada."
+        "title": "Corporate & acquisition",
+        "desc": "Incorporation, reorganization, shareholders' agreements and business sales."
       },
       {
-        "title": "Human approach",
-        "desc": "Strategic, rigorous and human support at every step."
+        "title": "Accessible law",
+        "desc": "What you understand after speaking with us — law that truly belongs to you."
       },
       {
-        "title": "Growth-oriented",
-        "desc": "We understand the entrepreneurial reality and preserve your momentum."
+        "title": "Growing entrepreneurs",
+        "desc": "Strategic structuring and legal support tailored to your reality."
       }
     ]
   },
@@ -53,26 +53,44 @@
     "label": "Our team",
     "headingLine1": "The lawyers",
     "headingLine2": "who support you.",
-    "description": "A team with complementary expertise, united by the same commitment to rigor and dedication to its clients."
+    "description": "Comprehensive expertise in business, corporate, commercial and immigration law — united by a commitment to making law simple and accessible."
   },
   "Services": {
     "label": "Services",
     "headingLine1": "Our areas",
     "headingLine2": "of expertise",
-    "subtext": "Every situation is unique — we adapt our approach to your needs.",
+    "subtext": "Corporate law, business acquisition, commercial law and immigration — coherent solutions tailored to your reality.",
     "cta": "Book a consultation",
     "items": [
       {
         "title": "Corporate",
-        "tags": ["Incorporation", "Reorganization", "Corporate book", "Charter", "Corporate governance", "Shareholders agreement", "Dissolution", "Annual meetings"]
+        "tags": [
+          "Business incorporation",
+          "Reorganization",
+          "Shareholders' agreements",
+          "Corporate governance",
+          "Corporate book",
+          "Charter",
+          "Dissolution",
+          "Annual meetings"
+        ]
       },
       {
         "title": "Commercial",
-        "tags": ["Contracts", "Partnerships", "Suppliers", "Distribution", "Franchising", "Procurement"]
+        "tags": [
+          "Contract negotiation and drafting",
+          "Contracts",
+          "Partnerships",
+          "Suppliers",
+          "Distribution",
+          "Franchising",
+          "Procurement"
+        ]
       },
       {
         "title": "Business acquisition",
         "tags": [
+          "Business sale/purchase",
           "Letter of intent",
           "Offer letter",
           "Due diligence",
@@ -84,20 +102,30 @@
       },
       {
         "title": "Immigration — Individuals",
-        "tags": ["Asylum", "Humanitarian considerations", "Family reunification", "Work permit (individual)", "Permanent residence application"]
+        "tags": [
+          "Asylum",
+          "Humanitarian considerations",
+          "Family reunification",
+          "Work permit (individual)",
+          "Permanent residence application"
+        ]
       },
       {
         "title": "Business immigration",
-        "tags": ["Work permits", "Companies", "LMIA", "Intra-company transfer", "Provincial nominee program"]
+        "tags": [
+          "Work permits",
+          "Companies",
+          "LMIA",
+          "Intra-company transfer",
+          "Provincial nominee program"
+        ]
       },
-      { "title": "Divorce", "tags": ["Amicable", "Contested", "Separation", "Mediation", "Spousal support"] },
-      { "title": "Family", "tags": ["Custody", "Child support", "Adoption", "Marriage contracts", "Inheritance"] },
       {
-        "title": "Criminal",
-        "tags": ["Impaired driving", "Ticket contestation", "Drug offences", "Assault", "Bail"]
-      },
-      { "title": "Civil", "tags": ["Claims", "Litigation", "Demand letter", "Small claims", "Contract disputes", "Negligence"] },
-      { "title": "Other", "tags": ["Special situation? Contact us."] }
+        "title": "Other",
+        "tags": [
+          "Special situation? Contact us."
+        ]
+      }
     ]
   },
   "Booking": {
@@ -135,7 +163,7 @@
     ]
   },
   "Footer": {
-    "tagline": "Your future, our mission.",
+    "tagline": "Making Law Simple.",
     "contact": "Contact",
     "navigation": "Navigation",
     "home": "Home",
@@ -155,18 +183,14 @@
     "share": "Share this card",
     "scanToShare": "Scan to share",
     "scanDescription": "Scan this code with your phone to access this contact card.",
-    "tagline": "Your future, our mission.",
+    "tagline": "Making Law Simple.",
     "office": "Office",
     "professional": "Professional"
   },
   "Lawyers": {
     "hanitra": {
       "title": "Attorney",
-      "description": "As a business lawyer, I help entrepreneurs build, protect and grow their company without legal headaches. I turn complex contracts and legal obligations into simple, clear and strategic solutions. My role: helping you avoid unpleasant surprises and secure your decisions while you stay focused on growth. With me, the law becomes a concrete ally to move your projects forward with confidence."
-    },
-    "fanta": {
-      "title": "Attorney",
-      "description": "A passionate lawyer, Fanta practices family law, youth protection, criminal law as well as immigration and asylum claims. She welcomes each client with attentive listening, without judgment and with a genuine desire to understand their story. Whatever your background or how complex your situation may be, she is committed to clearly explaining your options and supporting you every step of the way. Serious in her advocacy, accessible in her approach — she is here for you."
+      "description": "My practice is primarily focused on corporate law, business acquisition and commercial law: business incorporation and reorganization, shareholders' agreements, business sales and purchases, contract negotiation and drafting, strategic structuring and legal support for growing entrepreneurs. What sets me apart is not what I know — it's what you understand after speaking with me. Accessible law is law that truly belongs to you."
     }
   }
 }

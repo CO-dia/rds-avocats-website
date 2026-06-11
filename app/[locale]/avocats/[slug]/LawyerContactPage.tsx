@@ -14,6 +14,7 @@ import {
   Instagram,
   Facebook,
   Twitter,
+  Linkedin,
   Globe,
   ArrowLeft,
   ExternalLink,
@@ -24,6 +25,7 @@ const socialIcons: Record<string, typeof Globe> = {
   instagram: Instagram,
   facebook: Facebook,
   twitter: Twitter,
+  linkedin: Linkedin,
 };
 
 function generateVCard(lawyer: Lawyer, title: string, description: string): string {
@@ -48,7 +50,7 @@ function generateVCard(lawyer: Lawyer, title: string, description: string): stri
     lines.push(`NOTE:${description.replace(/\n/g, "\\n")}`);
   }
 
-  lawyer.socials.filter((s) => s.platform !== "linkedin").forEach((s) => {
+  lawyer.socials.forEach((s) => {
     lines.push(`URL:${s.url}`);
   });
 
@@ -93,7 +95,7 @@ export default function LawyerContactPage({ lawyer }: { lawyer: Lawyer }) {
 
   const lawyerTitle = tLawyers(lawyer.titleKey);
   const lawyerDescription = tLawyers(lawyer.descriptionKey);
-  const socials = lawyer.socials.filter((s) => s.platform !== "linkedin");
+  const socials = lawyer.socials;
 
   useEffect(() => {
     setPageUrl(typeof window !== "undefined" ? window.location.href : "");

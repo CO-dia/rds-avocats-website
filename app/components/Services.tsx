@@ -6,10 +6,6 @@ import {
   KeyRound,
   Users,
   Briefcase,
-  HeartCrack,
-  Home,
-  Gavel,
-  FileText,
   MoreHorizontal,
   ChevronDown,
 } from "lucide-react";
@@ -22,10 +18,6 @@ const serviceIcons = [
   KeyRound,
   Users,
   Briefcase,
-  HeartCrack,
-  Home,
-  Gavel,
-  FileText,
   MoreHorizontal,
 ];
 

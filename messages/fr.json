@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "RDS Avocats | Votre avenir, notre mission",
-    "description": "Cabinet d'avocats spécialisé en droit des affaires, immigration d'affaires, droit commercial, corporatif, familial, pénal et civil. Accompagnement stratégique pour bâtir, investir et réussir au Canada."
+    "title": "RDS Avocats | Rendre le Droit Simple",
+    "description": "Cabinet d'avocats spécialisé en droit des affaires, corporatif et commercial, ainsi qu'en immigration. Solutions juridiques cohérentes, efficaces et adaptées à la réalité globale de nos clients."
   },
   "Header": {
     "home": "Accueil",
@@ -14,38 +14,38 @@
   },
   "Hero": {
     "title": "RDS Avocats",
-    "tagline": "Votre avenir, notre mission",
+    "tagline": "Rendre le Droit Simple",
     "welcomeTitle": "Bienvenue chez RDS Avocats",
-    "welcomeSubtitle": "Parlez-nous de votre situation et prenez rendez-vous en quelques clics. Nous vous orientons vers la consultation la plus adaptée.",
+    "welcomeSubtitle": "Un droit accessible, c'est un droit qui vous appartient vraiment. Parlez-nous de votre situation et prenez rendez-vous en quelques clics.",
     "ctaBooking": "Prendre rendez-vous",
     "ctaDiscover": "Découvrir le cabinet"
   },
   "About": {
     "label": "À propos",
-    "headingLine1": "Un cabinet,",
-    "headingLine2": "toutes les solutions.",
-    "paragraph1": "Chez RDS Avocats, nous réunissons une équipe aux expertises complémentaires en droit des affaires, commercial et corporatif, ainsi qu'en droit de l'immigration, de la famille, civil, pénal et criminel. Cette diversité nous permet d'accompagner nos clients dans toutes les dimensions de leur réalité, personnelle comme professionnelle.",
-    "paragraph2Strong": "Notre force distinctive :",
-    "paragraph2": "l'immigration d'affaires. Nous aidons les entrepreneurs et entreprises étrangères à s'implanter au Canada tout en structurant leur expansion et leur projet de vie ici.",
-    "paragraph3": "Avec RDS Avocats, vous bénéficiez d'un accompagnement stratégique, rigoureux et humain — un partenaire juridique solide pour bâtir, investir et réussir au Canada.",
-    "quote": "Notre approche : claire, stratégique et orientée croissance.",
-    "subquote": "On parle votre langage, on comprend la réalité entrepreneuriale, et on vous aide à avancer sans ralentir votre momentum.",
+    "headingLine1": "Rendre le Droit",
+    "headingLine2": "Simple.",
+    "paragraph1": "Notre cabinet offre une expertise complète en droit des affaires, corporatif et commercial, ainsi qu'en immigration. Cette approche intégrée nous permet d'offrir des solutions juridiques cohérentes, efficaces et adaptées à la réalité globale de nos clients.",
+    "paragraph2Strong": "Notre pratique :",
+    "paragraph2": "principalement axée sur le droit corporatif, le repreneuriat et le droit commercial — constitution et réorganisation d'entreprises, conventions entre actionnaires, achat/vente d'entreprises, négociation et rédaction contractuelle, structuration stratégique et accompagnement juridique des entrepreneurs en croissance.",
+    "paragraph3": "Notre engagement : rendre le droit simple et accessible — un droit qui vous appartient vraiment.",
+    "quote": "Ce qui nous distingue n'est pas ce que nous savons.",
+    "subquote": "C'est ce que vous comprenez après nous avoir parlé. Un droit accessible, c'est un droit qui vous appartient vraiment.",
     "strengths": [
       {
-        "title": "Expertises complémentaires",
-        "desc": "Droit des affaires, immigration, famille, pénal et civil sous un même toit."
+        "title": "Expertise intégrée",
+        "desc": "Droit des affaires, corporatif, commercial et immigration sous une même approche."
       },
       {
-        "title": "Immigration d'affaires",
-        "desc": "Nous aidons entrepreneurs et entreprises étrangères à s'implanter au Canada."
+        "title": "Corporatif & repreneuriat",
+        "desc": "Constitution, réorganisation, conventions entre actionnaires et achat/vente d'entreprises."
       },
       {
-        "title": "Approche humaine",
-        "desc": "Un accompagnement stratégique, rigoureux et humain à chaque étape."
+        "title": "Droit accessible",
+        "desc": "Ce que vous comprenez après nous avoir parlé — un droit qui vous appartient vraiment."
       },
       {
-        "title": "Orienté croissance",
-        "desc": "On comprend la réalité entrepreneuriale et on préserve votre momentum."
+        "title": "Entrepreneurs en croissance",
+        "desc": "Structuration stratégique et accompagnement juridique adapté à votre réalité."
       }
     ]
   },
@@ -53,35 +53,44 @@
     "label": "Notre équipe",
     "headingLine1": "Les avocats",
     "headingLine2": "qui vous accompagnent.",
-    "description": "Une équipe aux expertises complémentaires, unie par une même exigence de rigueur et d'engagement envers ses clients."
+    "description": "Une expertise complète en droit des affaires, corporatif, commercial et immigration — unie par l'engagement de rendre le droit simple et accessible."
   },
   "Services": {
     "label": "Services",
     "headingLine1": "Nos domaines",
     "headingLine2": "d'expertise",
-    "subtext": "Chaque situation est unique — nous adaptons notre approche à vos besoins.",
+    "subtext": "Droit corporatif, repreneuriat, commercial et immigration — des solutions cohérentes adaptées à votre réalité.",
     "cta": "Prendre rendez-vous",
     "items": [
       {
         "title": "Corporatif",
         "tags": [
-          "Incorporation",
+          "Constitution d'entreprises",
           "Réorganisation",
+          "Conventions entre actionnaires",
+          "Gouvernance corporative",
           "Livre corporatif",
           "Charte",
-          "Gouvernance corporative",
-          "Convention d'actionnaires",
           "Dissolution",
           "Assemblées annuelles"
         ]
       },
       {
         "title": "Commercial",
-        "tags": ["Contrats", "Partenariats", "Fournisseurs", "Distribution", "Franchise", "Approvisionnement"]
+        "tags": [
+          "Négociation et rédaction contractuelle",
+          "Contrats",
+          "Partenariats",
+          "Fournisseurs",
+          "Distribution",
+          "Franchise",
+          "Approvisionnement"
+        ]
       },
       {
         "title": "Repreneuriat",
         "tags": [
+          "Achat/vente d'entreprises",
           "Lettre d'intention",
           "Lettre d'offre",
           "Vérification diligente",
@@ -93,20 +102,30 @@
       },
       {
         "title": "Immigration — Personnes",
-        "tags": ["Asile", "Considérations humanitaires", "Réunification familiale", "Permis de travail (individuel)", "Demande de résidence permanente"]
+        "tags": [
+          "Asile",
+          "Considérations humanitaires",
+          "Réunification familiale",
+          "Permis de travail (individuel)",
+          "Demande de résidence permanente"
+        ]
       },
-      { "title": "Immigration d'affaires", "tags": ["Travail", "Entreprises", "EIMT", "Transfert intra-entreprise", "Programme des candidats des provinces"] },
-      { "title": "Divorce", "tags": ["À l'amiable", "Contesté", "Séparation", "Médiation", "Pension alimentaire pour conjoint"] },
-      { "title": "Famille", "tags": ["Garde", "Pension alimentaire", "Adoption", "Contrats de mariage", "Succession"] },
       {
-        "title": "Pénal / Criminel",
-        "tags": ["Conduite avec facultés affaiblies", "Contestation de ticket", "Infractions drogues", "Voies de fait", "Cautionnement"]
+        "title": "Immigration d'affaires",
+        "tags": [
+          "Travail",
+          "Entreprises",
+          "EIMT",
+          "Transfert intra-entreprise",
+          "Programme des candidats des provinces"
+        ]
       },
       {
-        "title": "Civil",
-        "tags": ["Réclamation", "Litige", "Mise en demeure", "Petites créances", "Litiges contractuels", "Négligence"]
-      },
-      { "title": "Autre", "tags": ["Situation particulière? Contactez-nous."] }
+        "title": "Autre",
+        "tags": [
+          "Situation particulière? Contactez-nous."
+        ]
+      }
     ]
   },
   "Booking": {
@@ -144,7 +163,7 @@
     ]
   },
   "Footer": {
-    "tagline": "Votre avenir, notre mission.",
+    "tagline": "Rendre le Droit Simple.",
     "contact": "Contact",
     "navigation": "Navigation",
     "home": "Accueil",
@@ -164,18 +183,14 @@
     "share": "Partager cette fiche",
     "scanToShare": "Scanner pour partager",
     "scanDescription": "Scannez ce code avec votre téléphone pour accéder à cette fiche de contact.",
-    "tagline": "Votre avenir, notre mission.",
+    "tagline": "Rendre le Droit Simple.",
     "office": "Bureau",
     "professional": "Professionnel"
   },
   "Lawyers": {
     "hanitra": {
       "title": "Avocate",
-      "description": "Avocate en droit des affaires, j’accompagne les entrepreneurs pour bâtir, protéger et faire grandir leur entreprise sans casse-tête juridique. Je transforme les contrats complexes et les obligations légales en solutions simples, claires et stratégiques. Mon rôle : vous éviter les mauvaises surprises et sécuriser vos décisions pendant que vous vous concentrez sur votre croissance. Avec moi, le droit devient un allié concret pour faire avancer vos projets en toute confiance."
-    },
-    "fanta": {
-      "title": "Avocate",
-      "description": "Avocate passionnée, j’exerce en droit de la famille, en protection de la jeunesse, en droit criminel ainsi qu’en immigration et demandes d’asile. J’accueille chaque client avec écoute, sans jugement et avec une réelle volonté de comprendre son histoire. Peu importe votre parcours ou la complexité de votre situation, je m’engage à vous expliquer clairement vos options et à vous accompagner à chaque étape. Sérieuse dans la défense, accessible dans l’approche — je suis là pour vous."
+      "description": "Ma pratique est principalement axée sur le droit corporatif, le repreneuriat et le droit commercial : constitution et réorganisation d'entreprises, conventions entre actionnaires, achat/vente d'entreprises, négociation et rédaction contractuelle, structuration stratégique et accompagnement juridique des entrepreneurs en croissance. Ce qui me distingue n'est pas ce que je sais — c'est ce que vous comprenez après m'avoir parlé. Un droit accessible, c'est un droit qui vous appartient vraiment."
     }
   }
 }

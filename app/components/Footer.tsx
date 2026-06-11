@@ -44,7 +44,7 @@ export default function Footer() {
               info@rds-avocats.com
             </a>
             <a
-              href="https://www.linkedin.com/company/rds-avocats-sencrl/"
+              href="https://www.linkedin.com/company/rds-avocats/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 flex items-center gap-3 font-body text-sm text-text transition-colors hover:text-accent"
