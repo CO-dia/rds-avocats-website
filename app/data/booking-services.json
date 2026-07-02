@@ -28,15 +28,12 @@
     "share-purchase",
     "transition"
   ],
-  "immigration-individuals": [
+  "immigration": [
     "asylum",
     "humanitarian-considerations",
     "family-reunification",
-    "work-permit-individual",
-    "pr-application"
-  ],
-  "business-immigration": [
     "work-permits",
+    "permanent-residence",
     "companies",
     "lmia",
     "intra-company-transfer",

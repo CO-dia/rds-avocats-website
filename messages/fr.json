@@ -101,24 +101,19 @@
         ]
       },
       {
-        "title": "Immigration — Personnes",
+        "title": "Immigration",
         "tags": [
           "Asile",
           "Considérations humanitaires",
           "Réunification familiale",
-          "Permis de travail (individuel)",
-          "Demande de résidence permanente"
-        ]
-      },
-      {
-        "title": "Immigration d'affaires",
-        "tags": [
-          "Travail",
+          "Permis de travail",
+          "Résidence permanente",
           "Entreprises",
           "EIMT",
           "Transfert intra-entreprise",
           "Programme des candidats des provinces"
-        ]
+        ],
+        "note": "Affaires et particuliers (résidence temporaire et permanente)."
       },
       {
         "title": "Autre",

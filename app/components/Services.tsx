@@ -4,8 +4,7 @@ import {
   Building2,
   Handshake,
   KeyRound,
-  Users,
-  Briefcase,
+  Globe,
   MoreHorizontal,
   ChevronDown,
 } from "lucide-react";
@@ -16,8 +15,7 @@ const serviceIcons = [
   Building2,
   Handshake,
   KeyRound,
-  Users,
-  Briefcase,
+  Globe,
   MoreHorizontal,
 ];
 
@@ -27,6 +25,7 @@ export default function Services() {
   const items = t.raw("items") as Array<{
     title: string;
     tags: string[];
+    note?: string;
   }>;
 
   return (
@@ -102,6 +101,12 @@ export default function Services() {
                           </li>
                         ))}
                       </ul>
+
+                      {service.note && (
+                        <p className="mt-4 font-body text-sm italic text-text/80">
+                          {service.note}
+                        </p>
+                      )}
 
                       <div className="mt-5 pt-4 border-t border-white/5">
                         <a

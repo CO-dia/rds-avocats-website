@@ -101,24 +101,19 @@
         ]
       },
       {
-        "title": "Immigration — Individuals",
+        "title": "Immigration",
         "tags": [
           "Asylum",
           "Humanitarian considerations",
           "Family reunification",
-          "Work permit (individual)",
-          "Permanent residence application"
-        ]
-      },
-      {
-        "title": "Business immigration",
-        "tags": [
           "Work permits",
+          "Permanent residence",
           "Companies",
           "LMIA",
           "Intra-company transfer",
           "Provincial nominee program"
-        ]
+        ],
+        "note": "Business and individuals (temporary and permanent residence)."
       },
       {
         "title": "Other",
