@@ -5,6 +5,7 @@ export interface Lawyer {
   titleKey: string;
   company: string;
   photo: string;
+  aboutPhoto?: string;
   phones: { labelKey: string; number: string }[];
   emails: { labelKey: string; address: string }[];
   descriptionKey: string;
@@ -19,7 +20,8 @@ export const lawyers: Lawyer[] = [
     lastName: "Ravalimanantsoa",
     titleKey: "hanitra.title",
     company: "RDS Avocats",
-    photo: "/Hanitra.jpeg",
+    photo: "/hanitra-fiche-contact.jpg",
+    aboutPhoto: "/hanitra-accueil.jpg",
     phones: [{ labelKey: "office", number: "+1 514 569 8793" }],
     emails: [
       { labelKey: "professional", address: "hravalimanantsoa@rds-avocats.com" },

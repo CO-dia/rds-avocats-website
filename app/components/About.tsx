@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Shield, Globe, Users, TrendingUp } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { lawyers } from "@/app/data/lawyers";
 
 const strengthIcons = [Shield, Globe, Users, TrendingUp];
 
@@ -9,6 +11,7 @@ export default function About() {
     title: string;
     desc: string;
   }>;
+  const featuredLawyer = lawyers.find((lawyer) => lawyer.aboutPhoto);
 
   return (
     <section id="a-propos" className="relative py-24 lg:py-32">
@@ -33,6 +36,17 @@ export default function About() {
 
         <div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="space-y-6">
+            {featuredLawyer?.aboutPhoto && (
+              <div className="relative mx-auto aspect-3/4 w-full max-w-xs overflow-hidden border border-accent/15 bg-white shadow-xl shadow-accent/10 sm:max-w-sm lg:mx-0">
+                <Image
+                  src={featuredLawyer.aboutPhoto}
+                  alt={`${featuredLawyer.firstName} ${featuredLawyer.lastName}`}
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+            )}
+
             <p className="font-body text-base leading-relaxed text-text sm:text-lg" style={{ letterSpacing: "0.02em" }}>
               {t("paragraph1")}
             </p>
