@@ -5,17 +5,20 @@ import {
   Clock,
   Phone,
   FileCheck,
+  Globe,
   ChevronDown,
   Calendar,
   X,
 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getCalApi } from "@calcom/embed-react";
+import { Link } from "@/i18n/navigation";
 import bookingServicesData from "@/app/data/booking-services.json";
 
-const consultationIcons = [Phone, Clock, FileCheck];
+const consultationIcons = [Globe, Phone, Clock, FileCheck];
 
 const consultationSlugs = [
+  "hanitra-ravalimanantsoa/1ere-consultation-en-immigration",
   "hanitra-ravalimanantsoa/appel-decouverte",
   "hanitra-ravalimanantsoa/consultation-strategique",
   "hanitra-ravalimanantsoa/consultation-approfondie",
@@ -53,7 +56,7 @@ export default function BookingWidget() {
     tags: string[];
   }>;
 
-  const [selectedConsultation, setSelectedConsultation] = useState(0);
+  const [selectedConsultation, setSelectedConsultation] = useState(1);
   const [selectedServiceIndex, setSelectedServiceIndex] = useState<
     number | null
   >(null);
@@ -200,7 +203,7 @@ export default function BookingWidget() {
 
   return (
     <>
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
+      <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {items.map((item, i) => {
           const Icon = consultationIcons[i];
           const isSelected = selectedConsultation === i;
@@ -354,6 +357,30 @@ export default function BookingWidget() {
           {t("bookButton")}
         </button>
       </div>
+
+      <p className="mt-4 max-w-xl font-body text-xs leading-relaxed text-text/50">
+        {t.rich("legalNotice", {
+          privacy: (chunks) => (
+            <Link
+              href={{
+                pathname: "/politique",
+                hash: "partie-confidentialite",
+              }}
+              className="text-accent/70 underline decoration-accent/20 underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              {chunks}
+            </Link>
+          ),
+          terms: (chunks) => (
+            <Link
+              href={{ pathname: "/politique", hash: "partie-conditions" }}
+              className="text-accent/70 underline decoration-accent/20 underline-offset-2 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              {chunks}
+            </Link>
+          ),
+        })}
+      </p>
 
       {calOpen && (
         <div

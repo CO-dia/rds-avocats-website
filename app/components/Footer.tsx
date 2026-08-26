@@ -1,16 +1,28 @@
 import { Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
   const t = useTranslations("Footer");
 
   const footerLinks = [
-    { label: t("home"), href: "#accueil" },
-    { label: t("about"), href: "#a-propos" },
-    { label: t("team"), href: "#equipe" },
-    { label: t("services"), href: "#services" },
-    { label: t("booking"), href: "#rendez-vous" },
+    { label: t("home"), hash: "accueil" },
+    { label: t("about"), hash: "a-propos" },
+    { label: t("team"), hash: "equipe" },
+    { label: t("services"), hash: "services" },
+    { label: t("booking"), hash: "rendez-vous" },
+  ];
+
+  const legalLinks = [
+    {
+      label: t("privacy"),
+      href: { pathname: "/politique" as const, hash: "partie-confidentialite" },
+    },
+    {
+      label: t("terms"),
+      href: { pathname: "/politique" as const, hash: "partie-conditions" },
+    },
   ];
 
   return (
@@ -60,13 +72,13 @@ export default function Footer() {
             </h4>
             <div className="mt-4 flex flex-col gap-2">
               {footerLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <Link
+                  key={link.hash}
+                  href={{ pathname: "/", hash: link.hash }}
                   className="font-body text-sm text-text transition-colors hover:text-accent"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -76,10 +88,16 @@ export default function Footer() {
           <p className="font-body text-xs text-text/60">
             {t("copyright", { year: new Date().getFullYear() })}
           </p>
-          <div className="flex items-center gap-1">
-            <div className="h-1 w-1 rounded-full bg-accent/50" />
-            <div className="h-1 w-1 rounded-full bg-accent/30" />
-            <div className="h-1 w-1 rounded-full bg-accent/10" />
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="font-body text-xs text-text/60 transition-colors hover:text-accent"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

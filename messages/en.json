@@ -135,24 +135,31 @@
     "subjectOtherOption": "Other",
     "customServicePlaceholder": "Describe your needs...",
     "bookButton": "Book now",
+    "legalNotice": "By booking, you accept the <privacy>privacy policy</privacy> and the <terms>terms of use</terms>.",
     "items": [
       {
-        "title": "Discovery call",
+        "title": "Discovery call – Immigration",
+        "duration": "15 minutes",
+        "price": "$78",
+        "desc": "We discuss your immigration file, identify the need and guide you toward the best solution. Simple, quick, effective."
+      },
+      {
+        "title": "Discovery call – Commercial, corporate and transactional",
         "duration": "15 minutes",
         "price": "Free",
         "priceNote": "First consultation",
-        "desc": "We discuss your project, identify the need and guide you toward the best solution. Simple, quick, effective."
+        "desc": "We discuss your project, identify the need and guide you toward the best solution. Free for a first consultation."
       },
       {
         "title": "Strategic consultation",
         "duration": "30 minutes",
-        "price": "$150",
+        "price": "$178",
         "desc": "Perfect for validating an idea, asking a targeted question or unblocking a situation quickly."
       },
       {
         "title": "In-depth consultation",
         "duration": "60 minutes",
-        "price": "$300",
+        "price": "$355",
         "desc": "To structure your strategy, analyze your documents and leave with a concrete action plan."
       }
     ]
@@ -166,6 +173,8 @@
     "team": "Team",
     "services": "Services",
     "booking": "Book",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
     "copyright": "© {year} RDS Avocats. All rights reserved."
   },
   "Lawyer": {

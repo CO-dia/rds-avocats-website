@@ -135,24 +135,31 @@
     "subjectOtherOption": "Autre",
     "customServicePlaceholder": "Décrivez votre besoin...",
     "bookButton": "Réserver maintenant",
+    "legalNotice": "En réservant, vous acceptez la <privacy>politique de confidentialité</privacy> et les <terms>conditions d'utilisation</terms>.",
     "items": [
       {
-        "title": "Appel découverte",
+        "title": "Appel découverte – Immigration",
+        "duration": "15 minutes",
+        "price": "78 $",
+        "desc": "On discute de votre dossier d'immigration, on cerne le besoin et on vous oriente vers la meilleure solution. Simple, rapide, efficace."
+      },
+      {
+        "title": "Appel découverte – Commercial, corporatif et transactionnel",
         "duration": "15 minutes",
         "price": "Gratuit",
         "priceNote": "Première consultation",
-        "desc": "On discute de votre projet, on cerne le besoin et on vous oriente vers la meilleure solution. Simple, rapide, efficace."
+        "desc": "On discute de votre projet, on cerne le besoin et on vous oriente vers la meilleure solution. Gratuit pour une première consultation."
       },
       {
         "title": "Consultation stratégique",
         "duration": "30 minutes",
-        "price": "150 $",
+        "price": "178 $",
         "desc": "Parfait pour valider une idée, poser une question ciblée ou débloquer une situation rapidement."
       },
       {
         "title": "Consultation approfondie",
         "duration": "60 minutes",
-        "price": "300 $",
+        "price": "355 $",
         "desc": "Pour structurer votre stratégie, analyser vos documents et repartir avec un plan d'action concret."
       }
     ]
@@ -166,6 +173,8 @@
     "team": "Équipe",
     "services": "Services",
     "booking": "Rendez-vous",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
     "copyright": "© {year} RDS Avocats. Tous droits réservés."
   },
   "Lawyer": {
